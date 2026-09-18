@@ -1,7 +1,14 @@
 import { layers, namedFlavor } from "@protomaps/basemaps";
 import { writeFileSync } from "node:fs";
+
 const flavor = namedFlavor("light");
-const il = layers("israel", flavor, { lang: "he" }).map((l) => ({ ...l, id: l.id + "_il" }));
+// One background layer for the whole map. A second one paints over everything drawn before it,
+// so the country that comes first would disappear behind a flat grey.
+const norway = layers("norway", flavor, { lang: "he" });
+const israel = layers("israel", flavor, { lang: "he" })
+  .filter((l) => l.type !== "background")
+  .map((l) => ({ ...l, id: l.id + "_il" }));
+
 const style = {
   version: 8,
   glyphs: "{ASSETS}/fonts/{fontstack}/{range}.pbf",
@@ -10,7 +17,7 @@ const style = {
     norway: { type: "vector", url: "pmtiles://{NORWAY}", attribution: "OpenStreetMap" },
     israel: { type: "vector", url: "pmtiles://{ISRAEL}", attribution: "OpenStreetMap" },
   },
-  layers: [...layers("norway", flavor, { lang: "he" }), ...il],
+  layers: [...norway, ...israel],
 };
 writeFileSync("style.json", JSON.stringify(style));
-console.log("style layers:", style.layers.length);
+console.log("layers:", style.layers.length, "backgrounds:", style.layers.filter((l) => l.type === "background").length);
