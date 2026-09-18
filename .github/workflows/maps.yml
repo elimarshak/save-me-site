@@ -23,8 +23,16 @@ jobs:
           echo "using $B"
       - name: extract israel and norway
         run: |
-          ./pmtiles extract "https://build.protomaps.com/$BUILD" israel.pmtiles --bbox=34.1,29.3,36.0,33.5
-          ./pmtiles extract "https://build.protomaps.com/$BUILD" norway.pmtiles --bbox=4.0,57.5,31.5,71.5 --maxzoom=14
+          SRC="https://build.protomaps.com/$BUILD"
+          cat > norway.geojson <<'EOF'
+          {"type":"Polygon","coordinates":[[[4.5,57.9],[8.0,57.7],[11.3,58.8],[12.9,61.0],[12.2,64.0],[14.4,65.4],[16.2,67.1],[18.2,68.6],[20.2,69.1],[23.0,68.6],[25.6,68.9],[28.2,69.1],[30.1,69.6],[31.6,70.3],[31.6,71.3],[25.0,71.6],[18.0,70.7],[13.0,68.6],[10.0,65.6],[5.0,62.6],[4.0,60.0],[4.5,57.9]]]}
+          EOF
+          ./pmtiles extract "$SRC" israel.pmtiles --bbox=34.1,29.3,36.0,33.5
+          ./pmtiles extract "$SRC" norway.pmtiles --region=norway.geojson --maxzoom=14
+          if [ "$(stat -c %s norway.pmtiles)" -gt 1500000000 ]; then
+            echo "norway at zoom 14 is too large, cutting at zoom 13"
+            ./pmtiles extract "$SRC" norway.pmtiles --region=norway.geojson --maxzoom=13
+          fi
           ls -la *.pmtiles
       - name: style and assets
         run: |
