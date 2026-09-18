@@ -18,7 +18,7 @@ jobs:
           ./pmtiles version || true
       - name: latest planet build
         run: |
-          B=$(curl -sS https://build.protomaps.com/builds.json | jq -r '[.[] | .key | select(endswith(".pmtiles"))] | sort | last')
+          B=$(curl -sS https://build-metadata.protomaps.dev/builds.json | jq -r '[.[] | .key | select(endswith(".pmtiles"))] | sort | last')
           echo "BUILD=$B" >> "$GITHUB_ENV"
           echo "using $B"
       - name: extract israel and norway
