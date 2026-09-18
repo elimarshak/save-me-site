@@ -1,0 +1,54 @@
+name: maps
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: pmtiles cli
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo protomaps/go-pmtiles --pattern '*Linux_x86_64.tar.gz' -O pm.tgz
+          tar xzf pm.tgz pmtiles
+          chmod +x pmtiles
+          ./pmtiles version || true
+      - name: latest planet build
+        run: |
+          B=$(curl -sS https://build.protomaps.com/builds.json | jq -r '[.[] | .key | select(endswith(".pmtiles"))] | sort | last')
+          echo "BUILD=$B" >> "$GITHUB_ENV"
+          echo "using $B"
+      - name: extract israel and norway
+        run: |
+          ./pmtiles extract "https://build.protomaps.com/$BUILD" israel.pmtiles --bbox=34.1,29.3,36.0,33.5
+          ./pmtiles extract "https://build.protomaps.com/$BUILD" norway.pmtiles --bbox=4.0,57.5,31.5,71.5 --maxzoom=14
+          ls -la *.pmtiles
+      - name: style and assets
+        run: |
+          npm init -y > /dev/null
+          npm i @protomaps/basemaps
+          node gen-style.mjs
+          git clone --depth 1 https://github.com/protomaps/basemaps-assets ba
+          mkdir -p assets/sprites/v4 assets/fonts
+          cp ba/sprites/v4/light* assets/sprites/v4/
+          for f in "Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic"; do
+            mkdir -p "assets/fonts/$f"
+            for r in 0-255 256-511 512-767 768-1023 1024-1279 1280-1535 1536-1791 1792-2047 8192-8447 8448-8703 8704-8959; do
+              cp "ba/fonts/$f/$r.pbf" "assets/fonts/$f/" 2>/dev/null || true
+            done
+          done
+          cp style.json assets/
+          (cd assets && zip -qr ../assets.zip .)
+          ls -la assets.zip
+          IL=$(stat -c %s israel.pmtiles); NO=$(stat -c %s norway.pmtiles); AS=$(stat -c %s assets.zip)
+          echo "{\"build\":\"$BUILD\",\"israel\":$IL,\"norway\":$NO,\"assets\":$AS}" > maps.json
+          cat maps.json
+      - name: publish as release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete maps -y --cleanup-tag || true
+          gh release create maps israel.pmtiles norway.pmtiles assets.zip maps.json -t "Offline maps" -n "OpenStreetMap data via Protomaps build $BUILD"
