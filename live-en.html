@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>SAVE ME · Live map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#f2f2f4;--card:#fff;--text:#111;--muted:#6e6e73;--accent:#0072de;--red:#d7261e;--amber:#b26a00;--green:#1e7b34;--line:#e6e6e8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Hebrew",sans-serif;font-size:16px}
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.head{max-width:900px;margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.brand{font-size:13px;letter-spacing:.08em;color:var(--red);font-weight:600}
+h1{margin:2px 0 4px;font-size:26px;font-weight:600}
+h2{margin:0 0 10px;font-size:17px;font-weight:600}
+.muted{color:var(--muted);font-size:14px}
+.lang{color:var(--accent);text-decoration:none;font-size:15px;padding:6px 0}
+#map{height:52vh;min-height:300px;background:#ddd}
+.wrap{max-width:900px;margin:0 auto;padding:12px 16px 40px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.btn{flex:1 1 44%;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 12px;border:0;border-radius:16px;background:var(--card);color:var(--accent);font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.toggle{color:var(--text);font-weight:500}
+.coords{font-family:ui-monospace,Menlo,Consolas,monospace;direction:ltr;text-align:center;font-size:18px;padding:8px 0 14px;color:var(--text)}
+.card{background:var(--card);border-radius:20px;padding:16px 18px;margin-top:12px}
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:10px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.list li:first-child{border-top:0}
+.list a{color:var(--accent);text-decoration:none;font-weight:600;direction:ltr;white-space:nowrap}
+.mono li{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;direction:ltr}
+.banner{padding:14px 16px;color:#fff;font-weight:600;line-height:1.4}
+.banner.amber{background:var(--amber)}
+.banner.red{background:var(--red)}
+.banner.grey{background:#555}
+.hidden{display:none}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:6px;background:#999;vertical-align:middle}
+.dot.ok{background:var(--green)}.dot.warn{background:var(--amber)}.dot.bad{background:var(--red)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head">
+    <div>
+      <div class="brand">SAVE ME</div>
+      <h1 id="name"></h1>
+      <div id="status" class="muted">Loading...</div>
+    </div>
+    <a id="lang" class="lang" href="#">עברית</a>
+  </div>
+</header>
+<div id="banner" class="banner hidden"></div>
+<div id="map"></div>
+<main class="wrap">
+  <div class="row">
+    <a id="nav" class="btn primary" target="_blank" rel="noopener">Navigate to the position</a>
+    <button id="copy" class="btn">Copy coordinates</button>
+    <button id="share" class="btn">Share the link</button>
+    <label class="btn toggle"><input id="follow" type="checkbox" checked> Follow the marker</label>
+  </div>
+  <div id="coords" class="coords"></div>
+  <section class="card"><h2>Emergency numbers <span id="country" class="muted"></span></h2><ul id="numbers" class="list"></ul><ul id="near" class="list"></ul></section>
+  <section class="card"><h2>Contacts</h2><ul id="contacts" class="list"></ul></section>
+  <section class="card"><h2>Recent positions <span id="count" class="muted"></span></h2><ul id="recent" class="list mono"></ul></section>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  var name='';
+  var t={"title":"Live map","notFound":"This link is not valid or has expired.","loading":"Loading...","updated":"Updated","sec":"seconds ago","min":"minutes ago","hr":"hours ago","noData":"No position received yet.","battery":"Battery","accuracy":"Accuracy","m":"m","navigate":"Navigate to the position","copy":"Copy coordinates","copied":"Copied","share":"Share the link","follow":"Follow the marker","trackingSince":"The phone lost its link to the watch at","trackingNote":"and has been transmitting its position every 5 seconds since. Only the watch, the stop code or a contact can stop it.","alert":"Open alert","emergency":"Emergency numbers","near":"Near the position","contacts":"Contacts","stage":"Stage","recent":"Recent positions","offline":"No connection to the server. Retrying...","stale":"The phone has not transmitted for","points":"points","lang":"עברית"}; var L2="en";
+  var token=new URLSearchParams(location.search).get('t')||'';
+  var api="https://pmnvoenkpfptglgprgqc.supabase.co/functions/v1/saveme"+'/live-data?t='+encodeURIComponent(token);
+  document.getElementById('lang').href='./live'+("en"==='he'?'-en':'')+'?t='+encodeURIComponent(token)+'&lang=he';
+  var map=L.map('map',{zoomControl:true}); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+  map.setView([60,10],4);
+  var marker=null,circle=null,line=null,fitted=false,lastKey='';
+  var $=function(id){return document.getElementById(id)};
+  function ago(ms){ if(!ms) return ''; var s=Math.max(0,Math.round((Date.now()-ms)/1000)); if(s<90) return t.updated+' '+s+' '+t.sec; var m=Math.round(s/60); if(m<120) return t.updated+' '+m+' '+t.min; return t.updated+' '+Math.round(m/60)+' '+t.hr; }
+  function hhmm(ms){ var d=new Date(ms); return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)+':'+('0'+d.getSeconds()).slice(-2); }
+  function tel(p){ return '<a href="tel:'+p.replace(/[^+\d]/g,'')+'">'+p+'</a>'; }
+  function render(d){ $('name').textContent=d.name; name=d.name;
+    var la=d.lat,lo=d.lon;
+    var age=d.last_seen_ms?Date.now()-d.last_seen_ms:1e12;
+    var cls=age<30000?'ok':age<300000?'warn':'bad';
+    var st='<span class="dot '+cls+'"></span>'+(d.last_seen_ms?ago(d.last_seen_ms):t.noData);
+    if(d.battery!=null) st+=' · '+t.battery+' '+d.battery+'%';
+    if(d.acc!=null) st+=' · '+t.accuracy+' '+Math.round(d.acc)+' '+t.m;
+    $('status').innerHTML=st;
+    var b=$('banner');
+    if(d.incident){ b.className='banner red'; b.textContent=t.alert+': '+d.incident.text; }
+    else if(d.tracking){ b.className='banner amber'; b.textContent=t.trackingSince+' '+(d.watch_lost_at_ms?hhmm(d.watch_lost_at_ms):'')+' '+t.trackingNote; }
+    else if(age>600000&&d.last_seen_ms){ b.className='banner grey'; b.textContent=t.stale+' '+Math.round(age/60000)+' '+t.min; }
+    else { b.className='banner hidden'; }
+    if(la!=null&&lo!=null){
+      $('coords').textContent=la.toFixed(5)+', '+lo.toFixed(5);
+      $('nav').href='https://www.google.com/maps/dir/?api=1&destination='+la.toFixed(6)+','+lo.toFixed(6);
+      if(!marker){ marker=L.marker([la,lo]).addTo(map); circle=L.circle([la,lo],{radius:d.acc||0,color:'#0072de',weight:1,fillOpacity:.1}).addTo(map); }
+      else { marker.setLatLng([la,lo]); circle.setLatLng([la,lo]); circle.setRadius(d.acc||0); }
+      marker.bindPopup(name+'<br>'+(d.last_seen_ms?hhmm(d.last_seen_ms):''));
+      var pts=(d.points||[]).slice().reverse().map(function(p){return [p.lat,p.lon]});
+      if(line) line.setLatLngs(pts); else line=L.polyline(pts,{color:'#d7261e',weight:3,opacity:.8}).addTo(map);
+      if(!fitted){ fitted=true; if(pts.length>1) map.fitBounds(L.latLngBounds(pts).pad(0.2)); else map.setView([la,lo],15); }
+      else if($('follow').checked){ map.panTo([la,lo]); }
+    }
+    var key=(d.emergency&&d.emergency.country_he)+'|'+(d.contacts||[]).length;
+    if(key!==lastKey){ lastKey=key;
+      $('country').textContent=L2==='he'?d.emergency.country_he:d.emergency.country_en;
+      $('numbers').innerHTML=(d.emergency.numbers||[]).map(function(n){return '<li><span>'+(L2==='he'?n.he:n.en)+'</span>'+tel(n.phone)+'</li>'}).join('');
+      $('near').innerHTML=(d.emergency.near||[]).map(function(n){return '<li><a href="'+n.url+'" target="_blank" rel="noopener" style="direction:inherit">'+(L2==='he'?n.he:n.en)+'</a></li>'}).join('');
+      $('contacts').innerHTML=(d.contacts||[]).map(function(c){return '<li><span>'+t.stage+' '+c.stage+': '+c.name+'</span>'+tel(c.phone)+'</li>'}).join('');
+    }
+    var rec=(d.points||[]).slice(0,12);
+    $('count').textContent=(d.points||[]).length+' '+t.points;
+    $('recent').innerHTML=rec.map(function(p){return '<li><span>'+hhmm(p.at_ms)+'</span><span>'+p.lat.toFixed(5)+', '+p.lon.toFixed(5)+(p.batt!=null?' · '+p.batt+'%':'')+'</span></li>'}).join('');
+  }
+  var cur=null;
+  function load(){ fetch(api,{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){ if(d&&d.ok){cur=d; render(d);} }).catch(function(){ $('status').innerHTML='<span class="dot bad"></span>'+t.offline; }); }
+  load(); setInterval(load,5000);
+  $('copy').onclick=function(){ if(!cur||cur.lat==null) return; var s=cur.lat.toFixed(6)+', '+cur.lon.toFixed(6); (navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){ $('copy').textContent=t.copied; setTimeout(function(){$('copy').textContent=t.copy},1500); }).catch(function(){ prompt('', s); }); };
+  $('share').onclick=function(){ var u=location.href; if(navigator.share) navigator.share({title:'SAVE ME',url:u}).catch(function(){}); else if(navigator.clipboard) navigator.clipboard.writeText(u).then(function(){ $('share').textContent=t.copied; setTimeout(function(){$('share').textContent=t.share},1500); }); };
+})();
+</script>
+</body>
+</html>
