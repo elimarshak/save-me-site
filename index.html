@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAVE ME: המדריך המלא</title>
+<link rel="canonical" href="https://savemesos.com/">
+<link rel="alternate" hreflang="he" href="https://savemesos.com/">
+<link rel="alternate" hreflang="en" href="https://savemesos.com/index-en.html">
+<link rel="alternate" hreflang="x-default" href="https://savemesos.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Rubik:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -69,6 +73,18 @@ body {
   direction: ltr;
 }
 
+.lang-switch {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-alt);
+}
+
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -104,6 +120,7 @@ section {
   font-weight: 900;
   line-height: 1.25;
   color: var(--ink);
+  margin-bottom: 12px;
 }
 .text-body {
   font-size: 19px;
@@ -206,12 +223,13 @@ section {
 
 /* רשת כרטיסי השלבים */
 .steps-grid {
-  columns: 2 460px;
-  column-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
 }
-.steps-grid .step-card {
-  break-inside: avoid;
-  margin-bottom: 24px;
+.steps-grid .step-card.wide {
+  grid-column: 1 / -1;
 }
 .step-card {
   background-color: var(--surface);
@@ -507,6 +525,7 @@ footer {
     <a href="./" class="brand-group" aria-label="SAVE ME דף הבית">
       <span class="brand-badge">SAVE ME</span>
     </a>
+    <a href="./index-en.html" class="lang-switch" lang="en" hreflang="en" aria-label="English">EN</a>
   </div>
 </header>
 
@@ -612,7 +631,7 @@ footer {
         </p>
       </div>
 
-      <div class="step-card">
+      <div class="step-card wide">
         <div class="step-header">
           <div class="step-num-title">
             <span class="step-badge" aria-hidden="true">3</span>
@@ -681,7 +700,7 @@ footer {
         </p>
       </div>
 
-      <div class="step-card">
+      <div class="step-card wide">
         <div class="step-header">
           <div class="step-num-title">
             <span class="step-badge" aria-hidden="true">6</span>
