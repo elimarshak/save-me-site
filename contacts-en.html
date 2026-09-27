@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAVE ME: For contacts</title>
+<link rel="canonical" href="https://savemesos.com/contacts-en.html">
+<link rel="alternate" hreflang="he" href="https://savemesos.com/contacts.html">
+<link rel="alternate" hreflang="en" href="https://savemesos.com/contacts-en.html">
+<link rel="alternate" hreflang="x-default" href="https://savemesos.com/contacts.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Rubik:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f172a;
+  --ink-secondary: #475569;
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --red-alarm: #d91f26;
+  --amber-warning: #d97706;
+  --green-safe: #15803d;
+  --blue-info: #1d4ed8;
+  --p-ink: #0f172a;
+  --p-bg: #ffffff;
+  --p-accent: #d91f26;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-padding-top: 96px; }
+body {
+  font-family: 'Assistant', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 14px 24px;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-badge {
+  background-color: var(--red-alarm);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+  direction: ltr;
+}
+
+.lang-switch {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-alt);
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 12px;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+.hero-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.text-body {
+  font-size: 19px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.text-body + .text-body {
+  margin-top: 8px;
+}
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 12px 28px;
+  background-color: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.link-secondary {
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* כרטיס המפה החיה, בהיר */
+.live-map-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.live-map-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.map-mockup-area {
+  height: 220px;
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contour-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+}
+.map-picto {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 2;
+}
+
+/* תיבות */
+.callout-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.callout-box.dashed {
+  border: 2px dashed var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+}
+.callout-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* רשת כרטיסי השלבים */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.steps-grid .step-card.wide {
+  grid-column: 1 / -1;
+}
+.step-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+}
+.step-num-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-badge {
+  background-color: var(--ink);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.step-header h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.step-icon-large {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+/* רשת כרטיסי הפרופילים */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 24px;
+}
+.profile-card {
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.profile-card.contact-path {
+  border-style: dashed;
+  background-color: #fcfdfe;
+}
+.profile-img-container {
+  height: 220px;
+  background-color: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img-container svg {
+  width: 120px;
+  height: 120px;
+  --p-bg: #f1f5f9;
+}
+.profile-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+.profile-card.contact-path .profile-content {
+  padding-top: 32px;
+}
+.profile-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.profile-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* תרשים */
+.flow-container {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.flow-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: var(--surface-alt);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.legend-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.flow-container .callout-box {
+  background-color: var(--surface-alt);
+}
+.flow-step-block {
+  border: 2px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.flow-step-block.yellow-warning {
+  border-color: var(--amber-warning);
+  background-color: #fffbeb;
+}
+.flow-step-block.red-alarm {
+  border-color: var(--red-alarm);
+  background-color: #fef2f2;
+}
+.flow-stage-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.yellow-warning .flow-stage-title { color: #92400e; }
+.red-alarm .flow-stage-title { color: #991b1b; }
+
+/* עוד עמודים */
+.pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+  list-style: none;
+}
+.page-link-tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-secondary);
+  font-weight: 600;
+  font-size: 18px;
+}
+.page-link-tile svg {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+a.page-link-tile {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+}
+a.page-link-tile:hover { background-color: var(--surface-alt); }
+.text-body a { color: var(--blue-info); text-underline-offset: 3px; }
+
+/* מה חשוב לדעת */
+.honest-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.honest-box .text-body + .text-body {
+  margin-top: 0;
+}
+.source-line {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  text-align: left;
+  line-height: 1.5;
+}
+
+footer {
+  border-top: 3px solid var(--ink);
+  background-color: var(--surface);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style: none;
+  font-weight: 700;
+}
+.footer-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-domain {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+
+.page-main { max-width: 860px; }
+.sub-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+.text-body.list {
+  margin-inline-start: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cmd {
+  display: block;
+  font-family: 'Rubik', monospace;
+  font-weight: 700;
+  font-size: 18px;
+  direction: ltr;
+  text-align: left;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  word-break: break-all;
+}
+.cmd a { color: var(--blue-info); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 12px 16px; }
+  .main-content { padding: 24px 16px 56px; gap: 44px; }
+  .hero-title { font-size: 28px; }
+  .section-title { font-size: 26px; }
+  .step-card, .callout-box, .profile-content { padding: 18px; }
+  .flow-container, .honest-box { padding: 18px; }
+  .live-map-card { padding: 18px; }
+  .btn-primary { width: 100%; }
+  footer { padding: 32px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- סמלי וקטור מתוך pictos.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="p-profile-hike" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="30" y="14" width="8" height="13" rx="2" fill="var(--p-ink, currentColor)"/><path d="M27 15 L30 15" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L20 27 L20 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L28 27 L28 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L19 22 L15 22" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18 L14 39" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-work" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="13" r="4" fill="var(--p-ink, currentColor)"/><rect x="15" y="11" width="18" height="2" rx="0" fill="var(--p-bg, #fff)"/><path d="M18 11 A6 6 0 0 1 30 11 Z" fill="var(--p-ink, currentColor)"/><rect x="16" y="9" width="16" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="11" y="19" width="26" height="6" rx="4" fill="var(--p-ink, currentColor)"/><rect x="18" y="19" width="12" height="13" rx="4" fill="var(--p-ink, currentColor)"/><path d="M13.5 22 L13.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.5 22 L34.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 30 L20.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.5 30 L27.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-older" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L22 25 L22 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L26 25 L26 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L16 25" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 38 V25 A3 3 0 0 0 9 25 V27" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-contact" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-fall" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><path d="M26 28 L22 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="17" r="4" fill="var(--p-ink, currentColor)"/><path d="M27 29 L27 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 29 L35 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 25 L15 33" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.43 15.48 A22 22 0 0 1 29.3 15.12" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.59 11.57 A26 26 0 0 1 29.72 11.14" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-countdown" viewBox="0 0 48 48"><rect x="15" y="8" width="18" height="32" rx="4" fill="var(--p-ink, currentColor)"/><rect x="17" y="10" width="14" height="28" rx="2" fill="var(--p-bg, #fff)"/><circle cx="24" cy="20" r="5" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3"/><path d="M24 15 A5 5 0 1 1 19.67 22.5" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="19" y="31" width="10" height="4" rx="2" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-chain" viewBox="0 0 48 48"><circle cx="36" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M30 21 V18 A4 4 0 0 1 34 14 H38 A4 4 0 0 1 42 18 V21 Z" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M6 21 V18 A4 4 0 0 1 10 14 H14 A4 4 0 0 1 18 18 V21 Z" fill="var(--p-ink, currentColor)"/><path d="M26 11 L22 14 L26 17" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 22 L24 25 L27 22" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M4 44 V41 A4 4 0 0 1 8 37 H12 A4 4 0 0 1 16 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M18 44 V41 A4 4 0 0 1 22 37 H26 A4 4 0 0 1 30 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="38" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M32 44 V41 A4 4 0 0 1 36 37 H40 A4 4 0 0 1 44 41 V44 Z" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-takeover" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 20 L32 14 L32 7" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-car-leave" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="8" y="21" width="34" height="11" rx="4" fill="var(--p-ink, currentColor)"/><path d="M14 22 L21 13 H32 L38 22 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linejoin="round"/><path d="M19 21 L23 16 H26 V21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><path d="M29 21 V16 H31 L35 21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><circle cx="16" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="16" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="34" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="34" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 12 L15 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-watch" viewBox="0 0 48 48"><rect x="16" y="4" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><rect x="16" y="34" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="11" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="8" fill="var(--p-bg, #fff)"/><rect x="33" y="21" width="3" height="6" rx="1.5" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-live-map" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="34" r="2" fill="var(--p-bg, #fff)"/><circle cx="16.5" cy="31.5" r="2" fill="var(--p-bg, #fff)"/><circle cx="23" cy="29" r="2" fill="var(--p-bg, #fff)"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="4" stroke-linejoin="round"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-accent, currentColor)"/><circle cx="30" cy="17" r="2.94" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-offline-maps" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10 L12 13 L15 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 16 L16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-event-log" viewBox="0 0 48 48"><path d="M38 10 L38 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="10" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 10 L30 10" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="24" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 24 L30 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="38" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 38 L30 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 17 L22 17" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 31 L22 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+<!-- סמלי ממשק ותקן ISO 3864 -->
+<symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 3.5 L21.5 20 H2.5 Z" fill="#d97706" stroke="#0f172a" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5 L12 14" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#0f172a"/></symbol>
+<symbol id="i-alarm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="#d91f26" stroke="#0f172a" stroke-width="2"/><path d="M9 13.1 V10.1 A3 3 0 0 1 15 10.1 V13.1 L16.2 14.3 H7.8 L9 13.1 Z" fill="#ffffff"/><circle cx="12" cy="6.2" r="0.75" fill="#ffffff"/><path d="M10.8 14.9 A1.2 1.2 0 0 0 13.2 14.9 Z" fill="#ffffff"/></symbol>
+<symbol id="i-safe" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2" fill="#15803d" stroke="#0f172a" stroke-width="2"/><path d="M7.5 12 L10.5 15 L16.5 9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./index-en.html" class="brand-group" aria-label="SAVE ME home page">
+      <span class="brand-badge">SAVE ME</span>
+    </a>
+    <a href="./contacts.html" class="lang-switch" lang="he" hreflang="he" dir="rtl">עברית</a>
+  </div>
+</header>
+
+<main class="main-content page-main">
+<section id="top">
+<h1 class="hero-title">For emergency contacts: what you get, and what to do when an alert arrives</h1>
+<p class="text-body">Someone chose you as one of their contacts in an emergency app. The app, on their phone, detects a fall and other situations in which they may need help, and gives them a short time to cancel. If they do not cancel in time, you get an alert. This page explains how to join, what you get, what to do when an alert arrives, and what you cannot do.</p>
+<p class="text-body">The app does not call Magen David Adom (Israel's ambulance service) or the police itself. It calls only the contacts, so you are the ones who handle the situation.</p>
+
+</section>
+<section>
+<h2 class="section-title">Three ways to get the alerts</h2>
+<p class="text-body">There are three ways to get the alerts, and you can use more than one.</p>
+<h3 class="sub-title">1. In the app, on an Android phone</h3>
+<p class="text-body">This is the only way your phone rings loudly even when it is on silent. That ring is called an alarm here. The app works on Android phones, version 8 or later. Almost every phone that is not an iPhone is an Android phone, such as Samsung, Xiaomi or Google phones. There is no iPhone version of the app.</p>
+<p class="text-body">The person who chose you can send you a text message from their app with a link to download the app and a 6-digit pairing code. The download link works for 7 days. If it no longer works, ask the person who chose you to send you a new text message. The pairing code does not expire.</p>
+<p class="text-body">After installing:</p>
+<ol class="text-body list">
+<li>The app asks "Who uses this phone?". Tap "I'm an emergency contact".</li>
+<li>Type the 6-digit code, and tap "Connect".</li>
+<li>The app asks for a few permissions. Allow all of them. Three of them help the alarm reach you: the permission to show an alarm on the full screen, the permission to show notifications, and the permission to use the battery without restrictions. The permission to make calls lets the buttons in the app dial directly, without going through the dialling screen.</li>
+</ol>
+<p class="text-body">Once connected, the app checks with the server every 30 seconds for an alert. The server is the system's computer: it gets reports from the phone of the person who chose you, and sends the alerts through Telegram and to the app on the contacts' phones. If your phone has been without internet for 15 minutes, the app tells you, because as long as there is no internet, no alarm can reach you.</p>
+<p class="text-body">If the same code is typed on another phone, the earlier phone is disconnected and stops getting alarms. The app is also disconnected when the person who chose you removes you from their contact list. To connect again, you need a new code from them.</p>
+<h3 class="sub-title">2. In Telegram</h3>
+<p class="text-body">Telegram is a messaging app, like WhatsApp, and it also works on iPhones. To get the alerts in Telegram you do not need to install the app, and you do not need the pairing code. In Telegram, the alerts come from a bot. A bot is a Telegram account that the system runs. It sends you the alerts, and answers you automatically.</p>
+<ol class="text-body list">
+<li>Open this link. It opens the system's bot in Telegram:<span class="cmd" dir="ltr" lang="en"><a href="https://t.me/save_me_Hatzilu_bot">https://t.me/save_me_Hatzilu_bot</a></span></li>
+<li>Send the bot this command. A command is a fixed word that the bot understands:<span class="cmd" dir="ltr" lang="en">/start</span></li>
+<li>Tap the button "Share my phone number". The bot checks that your number is on the contact list of the person who chose you. If it is not on the list, the bot tells you so. In that case, ask the person who chose you to add you with the right number.</li>
+<li>The bot asks whether to write to you in Hebrew or in English. You can change the language at any time, with this command:<span class="cmd" dir="ltr" lang="en">/language</span></li>
+</ol>
+<p class="text-body">Important: Telegram does not ring when the phone is on silent. The alerts and messages in Telegram come with Telegram's usual sound. Make sure the chat with the bot is not muted in Telegram's settings.</p>
+<h3 class="sub-title">3. Text messages and calls only</h3>
+<p class="text-body">When there is an alert, the phone of the person who chose you sends a text message to all the contacts and calls them, including those who have neither the app nor Telegram. A contact who gets only text messages and calls cannot stop the alerts and cannot cancel them. So it is important that at least one of the contacts installs the app or connects to Telegram, and preferably that it is you.</p>
+</section>
+<section>
+<h2 class="section-title">What you get, and when</h2>
+<h3 class="sub-title">An alert: the person who chose you may need help</h3>
+<p class="text-body">The alert is sent in one of four cases: when their phone detects a fall; when they get out of the car and do not come back to it within 90 minutes; when they press the SOS button on their smartwatch, if they have one; and when their phone does not move at all for 45 seconds. The last case is checked only if they have chosen the 'Field work' profile in the app. A profile is a setting in the app that decides which falls the phone detects, which sound it plays and how much time they have to cancel. In all these cases, except the SOS button, their phone first plays them a warning sound and gives them time to cancel. All these cases are explained on the home page.</p>
+<p class="text-body">The server also sends an alert on its own, when their phone stops reporting to the server for 90 minutes during a drive, for example because they got out of the car in an area without reception, or because the phone switched off or was destroyed. This alert arrives only in Telegram and in the app. For this alert, their phone sends no text messages and makes no calls.</p>
+<p class="text-body">The alert says what happened, where their phone is, when the location was updated, and how much battery their phone has left. It also lists the emergency numbers of the country they are in, and the rescue number, which is the best number to call for rescue. It also has a link to the live map. The live map is a page that opens in any browser, and shows on a map where their phone is. During an alert, the location on the map updates every 5 seconds.</p>
+<p class="text-body">The alarm passes between the contacts in the order set by the person who chose you. This order is called the alert chain, and it has three stages:</p>
+<ol class="text-body list">
+<li>First the alarm rings only for the first contact. It rings for 15 seconds, and if nobody taps "Got it, I'm handling it", it rings twice more, every 3 minutes.</li>
+<li>Then the second contact joins, and the alarm rings for both of them 3 times, every 3 minutes.</li>
+<li>Then all the other contacts join, and the alarm rings for all of them 3 times, every 3 minutes.</li>
+</ol>
+<p class="text-body">After the third stage, the alert chain goes back to the first contact and keeps going round. It does not stop on its own. It stops only when someone taps "Got it, I'm handling it" or cancels the alert.</p>
+<p class="text-body">In the app, the alarm and the red heading "There is an open alert" appear for you only when your turn comes. When the alert chain goes back to the first contact, they disappear for the other contacts until their turn comes again. During an alert, the app's main screen shows the box "Alert chain progress", even before your turn comes. The box shows what happened and which stage the alert chain is at. It stays on the screen for an hour after the alert is closed. In Telegram, all the contacts get the alert at once, with the buttons "Got it, I'm handling it" and "All is fine, cancel", and can tap them from the start.</p>
+<p class="text-body">If the phone of the person who chose you calls you, and the call lasts less than 20 seconds, for example because you reject it, your turn in the alert chain comes sooner: within a minute or two the alarm starts ringing for you too, if it is not ringing already. The call is timed from the moment of dialling, so a call that rings for 20 seconds or more, even if you do not answer, does not bring your turn forward.</p>
+<h3 class="sub-title">A text message and a call from the phone of the person who chose you</h3>
+<p class="text-body">At the same time, the phone of the person who chose you sends all the contacts a text message in Hebrew. The text message says what happened and your place on the contact list, and it has a link to their phone's last location in Google Maps, if it is known. Then the phone calls the contacts one after the other, 3 times each, with a one-minute break between calls. It first calls the contact that the person who chose you set for the first call, or, if they did not set one, the first on the list. Then it continues in the order of the list, and after the last one on the list it goes back to the first.</p>
+<p class="text-body">The call is an ordinary call from their phone, and their phone's speakerphone is on. The system does not play a recorded message during the call. If you answer and do not hear them speak, their phone may have called you by itself because of an alert: you hear what is going on near their phone, and if they are near the phone, they can hear you.</p>
+<h3 class="sub-title">A green message: the person who chose you is heading out into the field</h3>
+<p class="text-body">The person who chose you can send you a message when they head out into the field, with their location and their phone's battery level. This is a message, not an alert: it has no alarm, and their phone does not call you. The "Got it" button tells them that you saw the message.</p>
+<h3 class="sub-title">A yellow message: the connection between their phone and their smartwatch is cut</h3>
+<p class="text-body">If the person who chose you has a smartwatch, and the phone and the watch move so far apart that the connection between them is cut, the phone starts updating its location every 5 seconds. After 2 to 3 minutes you get a yellow message in Telegram and in the app, with a link to the live map. This is a message, not an alert: it has no alarm, and their phone does not call you. They may just have moved away from the phone for a moment, or the phone may have been lost or stolen.</p>
+<p class="text-body">In the app, the yellow message offers you a choice of what to do. Their name appears in the button names, in place of the three dots:</p>
+<ol class="text-body list">
+<li>The button "Call ..." calls them, so you can ask whether everything is OK.</li>
+<li>The button "I spoke with ... and everything is OK, stop the updates" stops the location updates. Tap it only after you have heard from them yourself that everything is OK. After you tap it, the contacts connected to Telegram get a message that you stopped the location updates.</li>
+<li>The button "I couldn't reach ..., open the live map" opens the live map, which shows where their phone is. You can send the link to the map to anyone helping to look for them.</li>
+<li>The button "Got it" only tells them that you saw the message. Tapping it does not mean that anyone is handling the situation.</li>
+</ol>
+<p class="text-body">If they have turned on the option "Red alert if the phone moves 300 m away after the watch link is lost" in their app, and after the connection is cut the phone moves more than 300 metres away, you get an alert, with an alarm, in the order of the alert chain. This alert says that their watch lost its connection to the phone, and that they did not confirm on the watch that everything is fine. For this alert, their phone sends no text messages and makes no calls, because the phone is probably no longer with them. If you have spoken with them and tap "All is fine", the location updates stop too. If you tap "Got it, I'm handling it", the location updates continue, and you can see on the live map where the phone is going.</p>
+<p class="text-body">In Telegram there are two more messages about the location updates. Once you have received the yellow message, you get a message when the location updates stop, saying who or what stopped them: their watch, the secret code on their phone, or a contact, by name. While their phone is updating its location, you also get a message when someone types a wrong secret code on their phone in an attempt to stop the location updates. The secret code is a code they set in advance in the app.</p>
+</section>
+<section>
+<h2 class="section-title">What to do when an alert arrives</h2>
+<ol class="text-body list">
+<li>Call the person who chose you. In the app you can call them with the button "Call ..." on the alert screen. Their name appears in place of the three dots. Their number is the number the text message and the calls came from.</li>
+<li>If they do not answer, tap "Got it, I'm handling it", and call the rescue number shown in the alert. In Israel this is the police. In Norway it is the rescue coordination centre. In Iceland it is the emergency line, on the number meant for calls from outside Iceland. In Poland it is the mountain rescue service. In other countries it is the Israeli Foreign Ministry Situation Room, which answers Israelis in distress abroad 24 hours a day.</li>
+<li>If you have spoken with them and it turns out they are OK, tap "All is fine" in the app, or "All is fine, cancel" in Telegram. Before cancelling, the app asks whether you are sure, because all the contacts will get a message that you cancelled the alert.</li>
+</ol>
+<p class="text-body">Tapping "Got it, I'm handling it" stops the alerts to all the contacts. The contacts connected to Telegram, and anyone who has already seen the alert in the app, get a message that you are handling it and the time you tapped it. This tap does not mean that they are OK. From this moment you handle the situation yourself, and the system sends no more alerts about the same incident. Their phone stops calling the contacts within 20 seconds, if it has internet. A call that is already ringing is not cut off, so you may get one more call from them after you tap it.</p>
+<p class="text-body">If you tapped "Got it, I'm handling it" in Telegram, you get one more button, "All is fine, close". This button sends no message to the other contacts. In an alert about a phone that moved more than 300 metres away, it also stops the location updates, and then the contacts connected to Telegram get a message that the location updates stopped.</p>
+<p class="text-body">In the app, the "Silence" button stops only the current ring. The alert stays open, and if nobody handles it, the alarm rings for you again the next time the alert chain reaches you, usually within 3 minutes.</p>
+<p class="text-body">You may get a message that the alert was cancelled and that they are OK, even though nobody has spoken with them. This happens when their phone detects that they are driving again, or when they turn the app off. If you have not heard from them yourself, it is a good idea to call them.</p>
+<h3 class="sub-title">What the alert screen in the app shows</h3>
+<ul class="text-body list">
+<li>The emergency numbers of the country they are in. Tapping a number calls it. The short numbers, such as 112, work only from a phone that is in that country. If you dial them from Israel, the call will not reach the emergency service in that country.</li>
+<li>The rescue number, with a button that calls it. When they are outside Israel, the screen also shows the Israeli Foreign Ministry Situation Room, which you can call or write to on WhatsApp.</li>
+<li>A text in English, which you can read out over the phone to a rescue service that does not speak Hebrew. The button "Copy the English text to read out" copies it.</li>
+<li>Four buttons that open a map of the area they are in, showing police stations, hospitals with an emergency room, towing and vehicle recovery companies, and fire stations.</li>
+<li>Their location, with coordinates, that is, the numbers that mark the exact place on the map. You can copy them and give them to the rescue service. The button "Open the location on a map" opens the location in Google Maps.</li>
+<li>The button "Movement track since the alert", which opens a list of the places their phone reported, newest first.</li>
+<li>The other contacts in the alert chain. Tapping a contact's name calls them, so that you can agree between you who does what.</li>
+</ul>
+<p class="text-body">After you tap "Got it, I'm handling it", the details on the screen no longer update. The location shown is the last one received before you tapped. The details stay on the screen for 24 hours after the tap, or until a new alert arrives. In Telegram, whoever tapped gets the location, the rescue number and the English text again, and the details stay in the messages.</p>
+</section>
+<section>
+<h2 class="section-title">What you cannot do</h2>
+<ul class="text-body list">
+<li>After someone has tapped "Got it, I'm handling it", the alert can no longer be cancelled.</li>
+<li>In the app you cannot tap "Got it, I'm handling it" before your turn comes in the alert chain. In Telegram you can from the start.</li>
+<li>A contact who gets only text messages and calls cannot stop anything.</li>
+<li>Telegram does not ring when the phone is on silent. Only the app rings even on silent.</li>
+<li>When your phone has no internet, the alarm in the app and the alert in Telegram do not reach you until the internet comes back. Text messages and calls arrive only when there is reception.</li>
+<li>You can see the movement track only while the alert is open, and up to 6 hours after it is closed.</li>
+</ul>
+</section>
+<section>
+<h2 class="section-title">Check in advance</h2>
+<p class="text-body">It is a good idea to check in advance that the alarm will reach you:</p>
+<ul class="text-body list">
+<li>On the app's main screen, the button "Test the alarm, 5 seconds" plays the alarm on your phone only. Nothing is sent to anyone.</li>
+<li>With the button "Alarm sound" you choose one of four sounds: "Rising and falling siren", "Two-tone horn", "Fast beeps" or "The phone's alarm clock sound".</li>
+<li>With the button "Battery settings" you can make sure the app can use the battery without restrictions.</li>
+<li>If you use your phone's "Do Not Disturb" mode, check in the phone's settings that it lets alarm clocks and this app ring through. The app asks to override this mode, but the phone's settings decide.</li>
+<li>In Telegram, make sure the chat with the bot is not muted.</li>
+</ul>
+</section>
+<section>
+<h2 class="section-title">Language</h2>
+<p class="text-body">The app has a language button at the top of the screen, which switches between Hebrew and English. When the app is in English, the alert description that comes from the server is shown in English too. In Telegram you choose the language with this command:</p>
+<p class="cmd" dir="ltr" lang="en">/language</p>
+<p class="text-body">The text messages from the phone of the person who chose you are always sent in Hebrew, even if you chose English in the app or in Telegram. The text to read out to a rescue service is always in English.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">SAVE ME</div>
+    <ul class="footer-links">
+      <li><a href="./privacy.html#en">Privacy</a></li>
+      <li><a href="mailto:eli.marshak@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-domain">savemesos.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

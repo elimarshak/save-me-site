@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAVE ME: לאנשי הקשר</title>
+<link rel="canonical" href="https://savemesos.com/contacts.html">
+<link rel="alternate" hreflang="he" href="https://savemesos.com/contacts.html">
+<link rel="alternate" hreflang="en" href="https://savemesos.com/contacts-en.html">
+<link rel="alternate" hreflang="x-default" href="https://savemesos.com/contacts.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Rubik:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f172a;
+  --ink-secondary: #475569;
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --red-alarm: #d91f26;
+  --amber-warning: #d97706;
+  --green-safe: #15803d;
+  --blue-info: #1d4ed8;
+  --p-ink: #0f172a;
+  --p-bg: #ffffff;
+  --p-accent: #d91f26;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-padding-top: 96px; }
+body {
+  font-family: 'Assistant', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 14px 24px;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-badge {
+  background-color: var(--red-alarm);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+  direction: ltr;
+}
+
+.lang-switch {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-alt);
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 12px;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+.hero-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.text-body {
+  font-size: 19px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.text-body + .text-body {
+  margin-top: 8px;
+}
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 12px 28px;
+  background-color: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.link-secondary {
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* כרטיס המפה החיה, בהיר */
+.live-map-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.live-map-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.map-mockup-area {
+  height: 220px;
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contour-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+}
+.map-picto {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 2;
+}
+
+/* תיבות */
+.callout-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.callout-box.dashed {
+  border: 2px dashed var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+}
+.callout-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* רשת כרטיסי השלבים */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.steps-grid .step-card.wide {
+  grid-column: 1 / -1;
+}
+.step-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+}
+.step-num-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-badge {
+  background-color: var(--ink);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.step-header h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.step-icon-large {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+/* רשת כרטיסי הפרופילים */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 24px;
+}
+.profile-card {
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.profile-card.contact-path {
+  border-style: dashed;
+  background-color: #fcfdfe;
+}
+.profile-img-container {
+  height: 220px;
+  background-color: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img-container svg {
+  width: 120px;
+  height: 120px;
+  --p-bg: #f1f5f9;
+}
+.profile-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+.profile-card.contact-path .profile-content {
+  padding-top: 32px;
+}
+.profile-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.profile-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* תרשים */
+.flow-container {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.flow-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: var(--surface-alt);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.legend-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.flow-container .callout-box {
+  background-color: var(--surface-alt);
+}
+.flow-step-block {
+  border: 2px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.flow-step-block.yellow-warning {
+  border-color: var(--amber-warning);
+  background-color: #fffbeb;
+}
+.flow-step-block.red-alarm {
+  border-color: var(--red-alarm);
+  background-color: #fef2f2;
+}
+.flow-stage-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.yellow-warning .flow-stage-title { color: #92400e; }
+.red-alarm .flow-stage-title { color: #991b1b; }
+
+/* עוד עמודים */
+.pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+  list-style: none;
+}
+.page-link-tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-secondary);
+  font-weight: 600;
+  font-size: 18px;
+}
+.page-link-tile svg {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+a.page-link-tile {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+}
+a.page-link-tile:hover { background-color: var(--surface-alt); }
+.text-body a { color: var(--blue-info); text-underline-offset: 3px; }
+
+/* מה חשוב לדעת */
+.honest-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.honest-box .text-body + .text-body {
+  margin-top: 0;
+}
+.source-line {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  text-align: left;
+  line-height: 1.5;
+}
+
+footer {
+  border-top: 3px solid var(--ink);
+  background-color: var(--surface);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  direction: ltr;
+  text-align: right;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style: none;
+  font-weight: 700;
+}
+.footer-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-domain {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  direction: ltr;
+  text-align: right;
+}
+
+.page-main { max-width: 860px; }
+.sub-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+.text-body.list {
+  margin-inline-start: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cmd {
+  display: block;
+  font-family: 'Rubik', monospace;
+  font-weight: 700;
+  font-size: 18px;
+  direction: ltr;
+  text-align: left;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  word-break: break-all;
+}
+.cmd a { color: var(--blue-info); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 12px 16px; }
+  .main-content { padding: 24px 16px 56px; gap: 44px; }
+  .hero-title { font-size: 28px; }
+  .section-title { font-size: 26px; }
+  .step-card, .callout-box, .profile-content { padding: 18px; }
+  .flow-container, .honest-box { padding: 18px; }
+  .live-map-card { padding: 18px; }
+  .btn-primary { width: 100%; }
+  footer { padding: 32px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- סמלי וקטור מתוך pictos.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="p-profile-hike" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="30" y="14" width="8" height="13" rx="2" fill="var(--p-ink, currentColor)"/><path d="M27 15 L30 15" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L20 27 L20 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L28 27 L28 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L19 22 L15 22" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18 L14 39" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-work" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="13" r="4" fill="var(--p-ink, currentColor)"/><rect x="15" y="11" width="18" height="2" rx="0" fill="var(--p-bg, #fff)"/><path d="M18 11 A6 6 0 0 1 30 11 Z" fill="var(--p-ink, currentColor)"/><rect x="16" y="9" width="16" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="11" y="19" width="26" height="6" rx="4" fill="var(--p-ink, currentColor)"/><rect x="18" y="19" width="12" height="13" rx="4" fill="var(--p-ink, currentColor)"/><path d="M13.5 22 L13.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.5 22 L34.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 30 L20.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.5 30 L27.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-older" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L22 25 L22 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L26 25 L26 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L16 25" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 38 V25 A3 3 0 0 0 9 25 V27" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-contact" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-fall" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><path d="M26 28 L22 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="17" r="4" fill="var(--p-ink, currentColor)"/><path d="M27 29 L27 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 29 L35 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 25 L15 33" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.43 15.48 A22 22 0 0 1 29.3 15.12" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.59 11.57 A26 26 0 0 1 29.72 11.14" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-countdown" viewBox="0 0 48 48"><rect x="15" y="8" width="18" height="32" rx="4" fill="var(--p-ink, currentColor)"/><rect x="17" y="10" width="14" height="28" rx="2" fill="var(--p-bg, #fff)"/><circle cx="24" cy="20" r="5" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3"/><path d="M24 15 A5 5 0 1 1 19.67 22.5" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="19" y="31" width="10" height="4" rx="2" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-chain" viewBox="0 0 48 48"><circle cx="36" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M30 21 V18 A4 4 0 0 1 34 14 H38 A4 4 0 0 1 42 18 V21 Z" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M6 21 V18 A4 4 0 0 1 10 14 H14 A4 4 0 0 1 18 18 V21 Z" fill="var(--p-ink, currentColor)"/><path d="M26 11 L22 14 L26 17" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 22 L24 25 L27 22" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M4 44 V41 A4 4 0 0 1 8 37 H12 A4 4 0 0 1 16 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M18 44 V41 A4 4 0 0 1 22 37 H26 A4 4 0 0 1 30 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="38" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M32 44 V41 A4 4 0 0 1 36 37 H40 A4 4 0 0 1 44 41 V44 Z" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-takeover" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 20 L32 14 L32 7" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-car-leave" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="8" y="21" width="34" height="11" rx="4" fill="var(--p-ink, currentColor)"/><path d="M14 22 L21 13 H32 L38 22 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linejoin="round"/><path d="M19 21 L23 16 H26 V21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><path d="M29 21 V16 H31 L35 21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><circle cx="16" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="16" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="34" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="34" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 12 L15 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-watch" viewBox="0 0 48 48"><rect x="16" y="4" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><rect x="16" y="34" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="11" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="8" fill="var(--p-bg, #fff)"/><rect x="33" y="21" width="3" height="6" rx="1.5" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-live-map" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="34" r="2" fill="var(--p-bg, #fff)"/><circle cx="16.5" cy="31.5" r="2" fill="var(--p-bg, #fff)"/><circle cx="23" cy="29" r="2" fill="var(--p-bg, #fff)"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="4" stroke-linejoin="round"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-accent, currentColor)"/><circle cx="30" cy="17" r="2.94" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-offline-maps" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10 L12 13 L15 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 16 L16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-event-log" viewBox="0 0 48 48"><path d="M38 10 L38 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="10" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 10 L30 10" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="24" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 24 L30 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="38" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 38 L30 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 17 L22 17" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 31 L22 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+<!-- סמלי ממשק ותקן ISO 3864 -->
+<symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 3.5 L21.5 20 H2.5 Z" fill="#d97706" stroke="#0f172a" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5 L12 14" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#0f172a"/></symbol>
+<symbol id="i-alarm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="#d91f26" stroke="#0f172a" stroke-width="2"/><path d="M9 13.1 V10.1 A3 3 0 0 1 15 10.1 V13.1 L16.2 14.3 H7.8 L9 13.1 Z" fill="#ffffff"/><circle cx="12" cy="6.2" r="0.75" fill="#ffffff"/><path d="M10.8 14.9 A1.2 1.2 0 0 0 13.2 14.9 Z" fill="#ffffff"/></symbol>
+<symbol id="i-safe" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2" fill="#15803d" stroke="#0f172a" stroke-width="2"/><path d="M7.5 12 L10.5 15 L16.5 9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./" class="brand-group" aria-label="SAVE ME דף הבית">
+      <span class="brand-badge">SAVE ME</span>
+    </a>
+    <a href="./contacts-en.html" class="lang-switch" lang="en" hreflang="en" aria-label="English">EN</a>
+  </div>
+</header>
+
+<main class="main-content page-main">
+<section id="top">
+<h1 class="hero-title">לאנשי הקשר: מה מקבלים, ומה עושים כשמגיעה התראה</h1>
+<p class="text-body">מישהו בחר בכם להיות אחד מאנשי הקשר שלו באפליקציה לשעת חירום. האפליקציה מזהה בטלפון שלו נפילה ומקרים אחרים שבהם אולי הוא צריך עזרה, ונותנת לו זמן קצר לבטל. אם הוא לא ביטל בזמן, אתם מקבלים התראה. בעמוד הזה מוסבר איך מצטרפים, מה מקבלים, מה עושים כשמגיעה התראה, ומה אי אפשר לעשות.</p>
+<p class="text-body">האפליקציה לא מתקשרת בעצמה למגן דוד אדום או למשטרה. היא מתקשרת רק לאנשי הקשר, ולכן אתם אלה שמטפלים בעניין.</p>
+
+</section>
+<section>
+<h2 class="section-title">שלוש דרכים לקבל את ההתראות</h2>
+<p class="text-body">יש שלוש דרכים לקבל את ההתראות, ואפשר להשתמש ביותר מדרך אחת.</p>
+<h3 class="sub-title">1. באפליקציה, בטלפון אנדרואיד</h3>
+<p class="text-body">זו הדרך היחידה שבה הטלפון שלכם מצלצל בצלצול חזק גם כשהוא על שקט. הצלצול הזה נקרא כאן אזעקה. האפליקציה עובדת בטלפון אנדרואיד בגרסה 8 ומעלה. כמעט כל טלפון שהוא לא אייפון הוא טלפון אנדרואיד, למשל טלפונים של סמסונג, שיאומי או גוגל. לאייפון אין גרסה של האפליקציה.</p>
+<p class="text-body">מי שבחר בכם יכול לשלוח לכם מהאפליקציה שלו הודעת טקסט עם קישור להורדת האפליקציה ועם קוד חיבור בן 6 ספרות. הקישור להורדה עובד 7 ימים. אם הוא כבר לא עובד, בקשו ממי שבחר בכם לשלוח לכם הודעת טקסט חדשה. לקוד החיבור אין תאריך תפוגה.</p>
+<p class="text-body">אחרי ההתקנה:</p>
+<ol class="text-body list">
+<li>האפליקציה שואלת "מי משתמש בטלפון הזה?". לחצו על "אני איש קשר לחירום".</li>
+<li>הקלידו את הקוד בן 6 הספרות, ולחצו על "חיבור".</li>
+<li>האפליקציה מבקשת כמה הרשאות. אשרו את כולן. שלוש מההרשאות עוזרות לאזעקה להגיע אליכם. הראשונה היא ההרשאה להציג אזעקה על כל המסך. השנייה היא ההרשאה להציג הודעות מהאפליקציה, שבהגדרות הטלפון נקראת "התראות". השלישית היא ההרשאה להשתמש בסוללה בלי הגבלה. ההרשאה לחייג מאפשרת לכפתורים באפליקציה לחייג ישר, בלי לעבור דרך מסך החיוג.</li>
+</ol>
+<p class="text-body">אחרי החיבור, האפליקציה שואלת את השרת כל 30 שניות אם יש התראה. השרת הוא המחשב של המערכת: הוא מקבל דיווחים מהטלפון של מי שבחר בכם, ושולח את ההתראות בטלגרם ובאפליקציה של אנשי הקשר. אם לטלפון שלכם אין אינטרנט במשך 15 דקות, האפליקציה מודיעה לכם על כך, כי כל עוד אין אינטרנט, שום אזעקה לא יכולה להגיע אליכם.</p>
+<p class="text-body">אם מקלידים את אותו קוד בטלפון נוסף, הטלפון הקודם מתנתק ומפסיק לקבל אזעקות. האפליקציה מתנתקת גם כשמי שבחר בכם מוחק אתכם מרשימת אנשי הקשר שלו. כדי להתחבר שוב, צריך לקבל ממנו קוד חדש.</p>
+<h3 class="sub-title">2. בטלגרם</h3>
+<p class="text-body">טלגרם היא אפליקציית הודעות, כמו וואטסאפ, והיא עובדת גם באייפון. כדי לקבל את ההתראות בטלגרם לא צריך להתקין את האפליקציה, ולא צריך את קוד החיבור. בטלגרם, ההתראות מגיעות מבוט. בוט הוא חשבון בטלגרם שהמערכת מפעילה. הוא שולח לכם את ההתראות, ועונה לכם אוטומטית.</p>
+<ol class="text-body list">
+<li>פתחו את הקישור הזה. הוא פותח בטלגרם את הבוט של המערכת:<span class="cmd" dir="ltr" lang="en"><a href="https://t.me/save_me_Hatzilu_bot">https://t.me/save_me_Hatzilu_bot</a></span></li>
+<li>שלחו לבוט את הפקודה הזו. פקודה היא מילה קבועה שהבוט מבין:<span class="cmd" dir="ltr" lang="en">/start</span></li>
+<li>לחצו על הכפתור "שיתוף מספר הטלפון שלי". הבוט בודק שהמספר שלכם נמצא ברשימת אנשי הקשר של מי שבחר בכם. אם הוא לא ברשימה, הבוט יגיד לכם, ואז בקשו ממי שבחר בכם להוסיף אתכם עם המספר הנכון.</li>
+<li>הבוט שואל אם לכתוב לכם בעברית או באנגלית. אפשר לשנות את השפה בכל זמן, בפקודה הזו:<span class="cmd" dir="ltr" lang="en">/language</span></li>
+</ol>
+<p class="text-body">חשוב: טלגרם לא מצלצלת כשהטלפון על שקט. ההתראות וההודעות בטלגרם מגיעות עם הצליל הרגיל של טלגרם. ודאו שהצ'אט עם הבוט לא מושתק בהגדרות של טלגרם.</p>
+<h3 class="sub-title">3. רק הודעות טקסט ושיחות</h3>
+<p class="text-body">כשיש התראה, הטלפון של מי שבחר בכם שולח הודעת טקסט לכל אנשי הקשר ומתקשר אליהם, גם לאלה שאין להם את האפליקציה ואין להם טלגרם. מי שמקבל רק הודעות טקסט ושיחות לא יכול לעצור את ההתראות ולא יכול לבטל אותן. לכן חשוב שלפחות אחד מאנשי הקשר יתקין את האפליקציה או יתחבר לטלגרם, ועדיף שזה תהיו אתם.</p>
+</section>
+<section>
+<h2 class="section-title">מה מקבלים, ומתי</h2>
+<h3 class="sub-title">התראה: מי שבחר בכם אולי צריך עזרה</h3>
+<p class="text-body">ההתראה נשלחת באחד מארבעה מקרים: כשהטלפון שלו זיהה נפילה, כשהוא יצא מהרכב ולא חזר אליו תוך 90 דקות, כשהוא לחץ על כפתור המצוקה בשעון החכם שלו, אם יש לו שעון כזה, וכשהטלפון שלו לא זז בכלל במשך 45 שניות. המקרה האחרון נבדק רק אם הוא בחר באפליקציה בפרופיל ׳עבודה בשטח׳. פרופיל הוא הגדרה באפליקציה, שקובעת אילו נפילות הטלפון מזהה, איזה צליל הוא משמיע וכמה זמן יש לו לבטל. בכל המקרים האלה, חוץ מכפתור המצוקה, הטלפון שלו קודם משמיע לו צליל אזהרה ונותן לו זמן לבטל. כל המקרים האלה מוסברים בדף הבית.</p>
+<p class="text-body">השרת שולח התראה גם בעצמו, כשהטלפון שלו הפסיק לדווח לשרת במשך 90 דקות בזמן נסיעה, למשל כי הוא יצא מהרכב באזור בלי קליטה, או כי הטלפון כבה או נהרס. ההתראה הזו מגיעה רק בטלגרם ובאפליקציה. הטלפון שלו לא שולח בה הודעות טקסט ולא מתקשר.</p>
+<p class="text-body">בהתראה כתוב מה קרה, איפה הטלפון שלו, מתי המיקום עודכן, וכמה סוללה נשארה בטלפון שלו. כתובים בה גם מספרי החירום של המדינה שבה הוא נמצא, והמספר שכדאי להתקשר אליו לחילוץ. יש בה גם קישור למפה החיה. המפה החיה היא עמוד שנפתח בכל דפדפן, ובו רואים על מפה איפה הטלפון שלו. בזמן התראה המיקום במפה מתעדכן כל 5 שניות.</p>
+<p class="text-body">האזעקה עוברת בין אנשי הקשר לפי הסדר שקבע מי שבחר בכם. הסדר הזה נקרא שרשרת ההתראות, ויש בו שלושה שלבים:</p>
+<ol class="text-body list">
+<li>קודם האזעקה מצלצלת רק אצל איש הקשר הראשון. היא מצלצלת 15 שניות, ואם אף אחד לא לוחץ על "קיבלתי, אני מטפל", היא מצלצלת עוד פעמיים, כל 3 דקות.</li>
+<li>אחר כך מצטרף איש הקשר השני, והאזעקה מצלצלת אצל שניהם 3 פעמים, כל 3 דקות.</li>
+<li>אחר כך מצטרפים כל שאר אנשי הקשר, והאזעקה מצלצלת אצל כולם 3 פעמים, כל 3 דקות.</li>
+</ol>
+<p class="text-body">אחרי השלב השלישי, שרשרת ההתראות חוזרת לאיש הקשר הראשון וממשיכה במעגל. היא לא נעצרת מעצמה. היא נעצרת רק כשמישהו לוחץ על "קיבלתי, אני מטפל" או מבטל את ההתראה.</p>
+<p class="text-body">באפליקציה, האזעקה והכיתוב האדום "יש התראה פתוחה" מופיעים אצלכם רק כשמגיע תורכם. כששרשרת ההתראות חוזרת לאיש הקשר הראשון, הם נעלמים אצל אנשי הקשר האחרים עד שמגיע שוב תורם. בזמן התראה, במסך הראשי של האפליקציה מופיעה התיבה "מה קורה בשרשרת ההתראות", עוד לפני שמגיע תורכם. בתיבה רואים מה קרה ובאיזה שלב נמצאת שרשרת ההתראות. התיבה נשארת על המסך עוד שעה אחרי שההתראה נסגרה. בטלגרם, כל אנשי הקשר מקבלים את ההתראה מיד, עם הכפתורים "קיבלתי, אני מטפל" ו"הכול בסדר, לבטל", ויכולים ללחוץ עליהם כבר מההתחלה.</p>
+<p class="text-body">אם הטלפון של מי שבחר בכם התקשר אליכם, והשיחה נמשכה פחות מ־20 שניות, למשל כי דחיתם אותה, התור שלכם בשרשרת ההתראות מגיע מוקדם יותר: בתוך דקה או שתיים האזעקה מתחילה לצלצל גם אצלכם, אם היא עוד לא מצלצלת. השיחה נמדדת מרגע החיוג, ולכן שיחה שצלצלה 20 שניות או יותר, גם בלי שעניתם, לא מקדמת את התור שלכם.</p>
+<h3 class="sub-title">הודעת טקסט ושיחה מהטלפון של מי שבחר בכם</h3>
+<p class="text-body">באותו זמן, הטלפון של מי שבחר בכם שולח לכל אנשי הקשר הודעת טקסט בעברית. בהודעת הטקסט כתוב מה קרה ומה המקום שלכם ברשימת אנשי הקשר, ויש בה קישור למיקום האחרון של הטלפון שלו במפות של גוגל, אם הוא ידוע. אחר כך הטלפון מתקשר לאנשי הקשר אחד אחרי השני, 3 פעמים לכל אחד, עם הפסקה של דקה בין שיחה לשיחה. הוא מתקשר קודם לאיש הקשר שמי שבחר בכם קבע לשיחה הראשונה, ואם הוא לא קבע, לראשון ברשימה. אחר כך הוא ממשיך לפי הסדר של הרשימה, ואחרי האחרון ברשימה הוא חוזר לראשון.</p>
+<p class="text-body">השיחה היא שיחה רגילה מהטלפון שלו, והרמקול בטלפון שלו פתוח. המערכת לא משמיעה בשיחה הקלטה. אם עניתם ולא שמעתם אותו מדבר, ייתכן שהטלפון שלו חייג אליכם בעצמו בגלל התראה: אתם שומעים את מה שקורה ליד הטלפון שלו, ואם הוא ליד הטלפון, הוא יכול לשמוע אתכם.</p>
+<h3 class="sub-title">הודעה ירוקה: מי שבחר בכם יוצא לשטח</h3>
+<p class="text-body">מי שבחר בכם יכול לשלוח לכם הודעה כשהוא יוצא לשטח, עם המיקום שלו ומצב הסוללה בטלפון שלו. זו הודעה, ולא התראה: אין בה אזעקה, והטלפון שלו לא מתקשר אליכם. הכפתור "קיבלתי" מודיע לו שראיתם את ההודעה.</p>
+<h3 class="sub-title">הודעה צהובה: החיבור בין הטלפון שלו לשעון החכם נקטע</h3>
+<p class="text-body">אם למי שבחר בכם יש שעון חכם, והטלפון והשעון התרחקו זה מזה עד שהחיבור ביניהם נקטע, הטלפון מתחיל לעדכן את המיקום שלו כל 5 שניות. אחרי 2 עד 3 דקות אתם מקבלים הודעה צהובה בטלגרם ובאפליקציה, עם קישור למפה החיה. זו הודעה, ולא התראה: אין בה אזעקה, והטלפון שלו לא מתקשר אליכם. ייתכן שהוא רק התרחק לרגע מהטלפון, וייתכן שהטלפון אבד או נגנב.</p>
+<p class="text-body">באפליקציה, ההודעה הצהובה מציעה לכם לבחור מה לעשות. בשמות הכפתורים מופיע השם שלו, במקום שלוש הנקודות:</p>
+<ol class="text-body list">
+<li>בכפתור "להתקשר אל ..." אתם מתקשרים אליו ושואלים אם הכול בסדר.</li>
+<li>בכפתור "דיברתי עם ... והכול בסדר, לעצור את עדכון המיקום" אתם עוצרים את עדכון המיקום. לחצו עליו רק אחרי ששמעתם ממנו בעצמכם שהכול בסדר. אחרי הלחיצה, אנשי הקשר שמחוברים לטלגרם מקבלים הודעה שעצרתם את עדכון המיקום.</li>
+<li>בכפתור "לא הצלחתי להשיג את ..., לפתוח את המפה החיה" אתם פותחים את המפה החיה ורואים איפה הטלפון שלו. אפשר לשלוח את הקישור למפה לכל מי שעוזר לחפש אותו.</li>
+<li>הכפתור "קיבלתי" רק מודיע לו שראיתם את ההודעה. הלחיצה עליו לא אומרת שמישהו מטפל בעניין.</li>
+</ol>
+<p class="text-body">אם הוא הפעיל באפליקציה שלו את האפשרות "התראה אדומה אם הטלפון מתרחק 300 מטר אחרי ניתוק מהשעון", ואחרי שהחיבור נקטע הטלפון התרחק יותר מ־300 מטר, אתם מקבלים התראה, עם אזעקה, לפי הסדר של שרשרת ההתראות. בהתראה הזו כתוב שהשעון שלו איבד את החיבור לטלפון, ושהוא לא אישר בשעון שהכול בסדר. הטלפון שלו לא שולח בה הודעות טקסט ולא מתקשר, כי כנראה הטלפון כבר לא אצלו. אם דיברתם איתו ולחצתם על "הכול בסדר", גם עדכון המיקום נעצר. אם לחצתם על "קיבלתי, אני מטפל", עדכון המיקום ממשיך, ואתם יכולים לראות במפה החיה לאן הטלפון זז.</p>
+<p class="text-body">בטלגרם יש עוד שתי הודעות על עדכון המיקום. אחרי שקיבלתם את ההודעה הצהובה, אתם מקבלים הודעה כשעדכון המיקום נעצר, ובה כתוב מי או מה עצר אותו: השעון שלו, הקוד הסודי בטלפון שלו, או איש קשר, בשמו. בזמן שהטלפון שלו מעדכן את המיקום, אתם מקבלים הודעה גם כשמישהו מקליד בטלפון שלו קוד סודי שגוי בניסיון לעצור את עדכון המיקום. הקוד הסודי הוא קוד שהוא קבע מראש באפליקציה.</p>
+</section>
+<section>
+<h2 class="section-title">מה עושים כשמגיעה התראה</h2>
+<ol class="text-body list">
+<li>התקשרו אל מי שבחר בכם. באפליקציה אפשר להתקשר אליו בכפתור "התקשרות אל ..." שבמסך ההתראה. במקום שלוש הנקודות מופיע השם שלו. המספר שלו הוא המספר שממנו הגיעו אליכם הודעת הטקסט והשיחות.</li>
+<li>אם הוא לא עונה, לחצו על "קיבלתי, אני מטפל", והתקשרו למספר החילוץ שמופיע בהתראה. בישראל זו המשטרה. בנורווגיה זה מרכז החילוץ. באיסלנד זה מוקד החירום, במספר שמיועד למי שמתקשר מחוץ לאיסלנד. בפולין זה שירות החילוץ בהרים. בשאר המדינות זה מרכז המצב של משרד החוץ, שעונה לישראלים במצוקה בחוץ לארץ 24 שעות ביממה.</li>
+<li>אם דיברתם איתו והתברר שהוא בסדר, לחצו על "הכול בסדר" באפליקציה, או על "הכול בסדר, לבטל" בטלגרם. לפני הביטול, האפליקציה שואלת אתכם אם אתם בטוחים, כי כל אנשי הקשר יקבלו הודעה שביטלתם את ההתראה.</li>
+</ol>
+<p class="text-body">הלחיצה על "קיבלתי, אני מטפל" עוצרת את ההתראות לכל אנשי הקשר. אנשי הקשר שמחוברים לטלגרם, ומי שכבר ראה את ההתראה באפליקציה, מקבלים הודעה שאתם מטפלים בעניין ובאיזו שעה לחצתם. הלחיצה הזו לא אומרת שהוא בסדר. מהרגע הזה אתם מטפלים בעניין בעצמכם, והמערכת לא שולחת עוד התראות על אותו מקרה. הטלפון שלו מפסיק להתקשר לאנשי הקשר תוך 20 שניות, אם יש לו אינטרנט. שיחה שכבר מצלצלת לא מתנתקת, ולכן ייתכן שתקבלו ממנו עוד שיחה אחרי שלחצתם.</p>
+<p class="text-body">אם לחצתם על "קיבלתי, אני מטפל" בטלגרם, אתם מקבלים כפתור נוסף, "הכול בסדר, לסגור". הכפתור הזה לא שולח הודעה לאנשי הקשר האחרים. בהתראה על טלפון שהתרחק יותר מ־300 מטר, הוא גם עוצר את עדכון המיקום, ואז אנשי הקשר שמחוברים לטלגרם מקבלים הודעה שעדכון המיקום נעצר.</p>
+<p class="text-body">באפליקציה, הכפתור "השתקה" עוצר רק את הצלצול הנוכחי. ההתראה נשארת פתוחה, ואם אף אחד לא מטפל, האזעקה תצלצל אצלכם שוב בפעם הבאה ששרשרת ההתראות מגיעה אליכם, בדרך כלל תוך 3 דקות.</p>
+<p class="text-body">ייתכן שתקבלו הודעה שההתראה בוטלה ושהוא בסדר, גם בלי שמישהו דיבר איתו. זה קורה כשהטלפון שלו מזהה שהוא שוב בנסיעה, או כשהוא מכבה את האפליקציה. אם לא שמעתם ממנו בעצמכם, כדאי להתקשר אליו.</p>
+<h3 class="sub-title">מה יש במסך ההתראה באפליקציה</h3>
+<ul class="text-body list">
+<li>מספרי החירום של המדינה שבה הוא נמצא. לחיצה על מספר מחייגת אליו. המספרים הקצרים, כמו 112, עובדים רק מטלפון שנמצא באותה מדינה. אם תחייגו אליהם מישראל, השיחה לא תגיע למוקד באותה מדינה.</li>
+<li>מספר החילוץ, עם כפתור שמחייג אליו. כשהוא מחוץ לישראל, יש במסך גם את מרכז המצב של משרד החוץ, שאפשר להתקשר אליו או לכתוב לו בוואטסאפ.</li>
+<li>טקסט באנגלית, שאפשר להקריא בטלפון לשירות חילוץ שלא מדבר עברית. הכפתור "העתקת הטקסט באנגלית להקראה" מעתיק אותו.</li>
+<li>ארבעה כפתורים שפותחים מפה של האזור שבו הוא נמצא, ומראים בה תחנות משטרה, בתי חולים עם חדר מיון, חברות גרירה וחילוץ רכב, ותחנות כיבוי אש.</li>
+<li>המיקום שלו, עם קואורדינטות, כלומר המספרים שמסמנים את המקום המדויק על המפה. אפשר להעתיק אותן ולמסור אותן לשירות החילוץ. הכפתור "פתיחת המיקום במפה" פותח את המיקום במפות של גוגל.</li>
+<li>הכפתור "מסלול התנועה מאז ההתראה", שפותח רשימה של המקומות שהטלפון שלו דיווח עליהם, מהחדש לישן.</li>
+<li>אנשי הקשר האחרים בשרשרת ההתראות. לחיצה על השם של איש קשר מחייגת אליו, כדי שתוכלו לתאם ביניכם מי עושה מה.</li>
+</ul>
+<p class="text-body">אחרי שלחצתם על "קיבלתי, אני מטפל", הפרטים במסך לא מתעדכנים יותר. המיקום שמוצג הוא האחרון שהתקבל לפני שלחצתם. הפרטים נשארים על המסך 24 שעות אחרי הלחיצה, או עד שמגיעה התראה חדשה. בטלגרם, מי שלחץ מקבל שוב את המיקום, את מספר החילוץ ואת הטקסט באנגלית, והפרטים נשארים בהודעות.</p>
+</section>
+<section>
+<h2 class="section-title">מה אי אפשר לעשות</h2>
+<ul class="text-body list">
+<li>אחרי שמישהו לחץ על "קיבלתי, אני מטפל", אי אפשר יותר לבטל את ההתראה.</li>
+<li>באפליקציה אי אפשר ללחוץ על "קיבלתי, אני מטפל" לפני שמגיע תורכם בשרשרת ההתראות. בטלגרם אפשר כבר מההתחלה.</li>
+<li>מי שמקבל רק הודעות טקסט ושיחות לא יכול לעצור שום דבר.</li>
+<li>טלגרם לא מצלצלת כשהטלפון על שקט. רק האפליקציה מצלצלת גם על שקט.</li>
+<li>כשלטלפון שלכם אין אינטרנט, האזעקה באפליקציה וההתראה בטלגרם לא מגיעות אליכם עד שהאינטרנט חוזר. הודעות טקסט ושיחות מגיעות רק כשיש קליטה.</li>
+<li>את מסלול התנועה אפשר לראות רק כל עוד ההתראה פתוחה, ועד 6 שעות אחרי שהיא נסגרה.</li>
+</ul>
+</section>
+<section>
+<h2 class="section-title">בדיקה מראש</h2>
+<p class="text-body">כדאי לבדוק מראש שהאזעקה תגיע אליכם:</p>
+<ul class="text-body list">
+<li>במסך הראשי של האפליקציה, הכפתור "בדיקת אזעקה, 5 שניות" משמיע את האזעקה בטלפון שלכם בלבד. שום דבר לא נשלח לאף אחד.</li>
+<li>בכפתור "צליל האזעקה" בוחרים אחד מארבעה צלילים: "סירנה עולה ויורדת", "צפירה כפולה", "צפצופים מהירים" או "צלצול השעון המעורר של הטלפון".</li>
+<li>בכפתור "הגדרות סוללה" אפשר לוודא שהאפליקציה יכולה להשתמש בסוללה בלי הגבלה.</li>
+<li>אם אתם משתמשים במצב "נא לא להפריע" בטלפון, בדקו בהגדרות שלו שהוא מאפשר צלצולים של שעון מעורר ושל האפליקציה. האפליקציה מבקשת לעקוף את המצב הזה, אבל ההגדרות של הטלפון הן שקובעות.</li>
+<li>בטלגרם, ודאו שהצ'אט עם הבוט לא מושתק.</li>
+</ul>
+</section>
+<section>
+<h2 class="section-title">שפה</h2>
+<p class="text-body">באפליקציה יש כפתור שפה בראש המסך, שמחליף בין עברית לאנגלית. כשהאפליקציה באנגלית, גם תיאור ההתראה שמגיע מהשרת מוצג באנגלית. בטלגרם בוחרים את השפה בפקודה הזו:</p>
+<p class="cmd" dir="ltr" lang="en">/language</p>
+<p class="text-body">הודעות הטקסט מהטלפון של מי שבחר בכם נשלחות תמיד בעברית, גם אם בחרתם באפליקציה או בטלגרם באנגלית. הטקסט להקראה לשירות חילוץ הוא תמיד באנגלית.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">SAVE ME</div>
+    <ul class="footer-links">
+      <li><a href="./privacy.html">פרטיות</a></li>
+      <li><a href="mailto:eli.marshak@gmail.com">יצירת קשר</a></li>
+    </ul>
+    <div class="footer-domain" lang="en">savemesos.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

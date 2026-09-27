@@ -421,6 +421,16 @@ section {
   flex-shrink: 0;
 }
 
+a.page-link-tile {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+}
+a.page-link-tile:hover { background-color: var(--surface-alt); }
+.text-body a { color: var(--blue-info); text-underline-offset: 3px; }
+
 /* מה חשוב לדעת */
 .honest-box {
   background-color: var(--surface);
@@ -560,7 +570,7 @@ footer {
         To use the app you need an Android phone, version 8 or later, with reception. Reception is the phone's connection to the mobile network, through which it makes calls and sends text messages. Your contacts can also install the app, or get the alerts in Telegram, a messaging app like WhatsApp. For the alerts to reach them in Telegram and in the app, and for them to see on a live map where your phone is, you also need internet. Internet is the connection through which the phone sends and receives data, over its data plan or over a Wi-Fi network. When you turn the app on, it asks for permission to send text messages. Without this permission the phone does not send your contacts text messages, but it still calls them. A smartwatch is an add-on, and you do not have to buy one.
       </p>
       <p class="text-body">
-        It is a good idea to tell your contacts in advance that you chose them. When you add a contact, you can send them a text message from the app with a link to download the app and a pairing code. The contact types the code into their own app, to connect it to yours. Anyone who gets the alerts in Telegram does not need the code. The download link in the message works for 7 days. A contact who installs the app, or who gets the alerts in Telegram, can also stop the alerts for all contacts, with the "Got it, I'm handling it" button, when they take charge of the situation. A contact who only gets text messages and calls cannot stop the alerts. What a contact needs to do is explained on the page for contacts.
+        It is a good idea to tell your contacts in advance that you chose them. When you add a contact, you can send them a text message from the app with a link to download the app and a pairing code. The contact types the code into their own app, to connect it to yours. Anyone who gets the alerts in Telegram does not need the code. The download link in the message works for 7 days. A contact who installs the app, or who gets the alerts in Telegram, can also stop the alerts for all contacts, with the "Got it, I'm handling it" button, when they take charge of the situation. A contact who only gets text messages and calls cannot stop the alerts. What a contact needs to do is explained on <a href="./contacts-en.html">the page for contacts</a>.
       </p>
 
       <div class="callout-box dashed">
@@ -782,7 +792,7 @@ footer {
             <svg style="width:44px;height:44px;" aria-hidden="true"><use href="#p-contact"/></svg>
           </div>
           <p class="text-body">
-            If someone asked you to be their contact, the page for contacts explains what you will get, what to do when an alarm comes in, how to install the app, and how to get the alerts in Telegram without installing it. Contacts install the same app, and it works only on Android phones. A contact with an iPhone gets the alerts in Telegram, as well as text messages and calls. Anyone who gets the alerts in Telegram and not in the app, on an iPhone or on Android, does not get an alarm that rings when the phone is on silent. If you get a call from the phone of the person who chose you, and you answer and do not hear them speak, it may be an alert.
+            If someone asked you to be their contact, <a href="./contacts-en.html">the page for contacts</a> explains what you will get, what to do when an alarm comes in, how to install the app, and how to get the alerts in Telegram without installing it. Contacts install the same app, and it works only on Android phones. A contact with an iPhone gets the alerts in Telegram, as well as text messages and calls. Anyone who gets the alerts in Telegram and not in the app, on an iPhone or on Android, does not get an alarm that rings when the phone is on silent. If you get a call from the phone of the person who chose you, and you answer and do not hear them speak, it may be an alert.
           </p>
         </div>
       </div>
@@ -881,7 +891,7 @@ footer {
         <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-profile-older"/></svg><span>Older adults: a light fall, a soft sound and a voice asking you to cancel</span></li>
         <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-car-leave"/></svg><span>Getting out of the car and Travel mode: what happens if you do not return to the car within 90 minutes, and how to turn on Travel mode, so that a stop on the way does not count as getting out of the car</span></li>
         <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-watch"/></svg><span>Smartwatch: what it adds, and which watches are suitable</span></li>
-        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-contact"/></svg><span>Contacts: who can be a contact, and what they get</span></li>
+        <li><a class="page-link-tile" href="./contacts-en.html"><svg aria-hidden="true"><use href="#p-contact"/></svg><span>Contacts: who can be a contact, and what they get</span></a></li>
         <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-chain"/></svg><span>How to choose contacts: whom to choose, and in what order to put them</span></li>
         <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-event-log"/></svg><span>The event log: everything the app did, by day, and how to share it</span></li>
         <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-live-map"/></svg><span>The live map: the page where your contacts see where your phone is</span></li>
