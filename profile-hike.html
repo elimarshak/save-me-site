@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAVE ME: טיול שטח</title>
+<link rel="canonical" href="https://savemesos.com/profile-hike.html">
+<link rel="alternate" hreflang="he" href="https://savemesos.com/profile-hike.html">
+<link rel="alternate" hreflang="en" href="https://savemesos.com/profile-hike-en.html">
+<link rel="alternate" hreflang="x-default" href="https://savemesos.com/profile-hike.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Rubik:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f172a;
+  --ink-secondary: #475569;
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --red-alarm: #d91f26;
+  --amber-warning: #d97706;
+  --green-safe: #15803d;
+  --blue-info: #1d4ed8;
+  --p-ink: #0f172a;
+  --p-bg: #ffffff;
+  --p-accent: #d91f26;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-padding-top: 96px; }
+body {
+  font-family: 'Assistant', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 14px 24px;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-badge {
+  background-color: var(--red-alarm);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+  direction: ltr;
+}
+
+.lang-switch {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-alt);
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 12px;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+.hero-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.text-body {
+  font-size: 19px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.text-body + .text-body {
+  margin-top: 8px;
+}
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 12px 28px;
+  background-color: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.link-secondary {
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* כרטיס המפה החיה, בהיר */
+.live-map-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.live-map-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.map-mockup-area {
+  height: 220px;
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contour-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+}
+.map-picto {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 2;
+}
+
+/* תיבות */
+.callout-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.callout-box.dashed {
+  border: 2px dashed var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+}
+.callout-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* רשת כרטיסי השלבים */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.steps-grid .step-card.wide {
+  grid-column: 1 / -1;
+}
+.step-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+}
+.step-num-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-badge {
+  background-color: var(--ink);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.step-header h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.step-icon-large {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+/* רשת כרטיסי הפרופילים */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 24px;
+}
+.profile-card {
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.profile-card.contact-path {
+  border-style: dashed;
+  background-color: #fcfdfe;
+}
+.profile-img-container {
+  height: 220px;
+  background-color: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img-container svg {
+  width: 120px;
+  height: 120px;
+  --p-bg: #f1f5f9;
+}
+.profile-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+.profile-card.contact-path .profile-content {
+  padding-top: 32px;
+}
+.profile-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.profile-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* תרשים */
+.flow-container {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.flow-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: var(--surface-alt);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.legend-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.flow-container .callout-box {
+  background-color: var(--surface-alt);
+}
+.flow-step-block {
+  border: 2px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.flow-step-block.yellow-warning {
+  border-color: var(--amber-warning);
+  background-color: #fffbeb;
+}
+.flow-step-block.red-alarm {
+  border-color: var(--red-alarm);
+  background-color: #fef2f2;
+}
+.flow-stage-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.yellow-warning .flow-stage-title { color: #92400e; }
+.red-alarm .flow-stage-title { color: #991b1b; }
+
+/* עוד עמודים */
+.pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+  list-style: none;
+}
+.page-link-tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-secondary);
+  font-weight: 600;
+  font-size: 18px;
+}
+.page-link-tile svg {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+a.page-link-tile {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+}
+a.page-link-tile:hover { background-color: var(--surface-alt); }
+.text-body a { color: var(--blue-info); text-underline-offset: 3px; }
+
+/* מה חשוב לדעת */
+.honest-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.honest-box .text-body + .text-body {
+  margin-top: 0;
+}
+.source-line {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  text-align: left;
+  line-height: 1.5;
+}
+
+footer {
+  border-top: 3px solid var(--ink);
+  background-color: var(--surface);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  direction: ltr;
+  text-align: right;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style: none;
+  font-weight: 700;
+}
+.footer-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-domain {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  direction: ltr;
+  text-align: right;
+}
+
+.page-main { max-width: 860px; }
+.sub-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+.text-body.list {
+  margin-inline-start: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cmd {
+  display: block;
+  font-family: 'Rubik', monospace;
+  font-weight: 700;
+  font-size: 18px;
+  direction: ltr;
+  text-align: left;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  word-break: break-all;
+}
+.cmd a { color: var(--blue-info); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 12px 16px; }
+  .main-content { padding: 24px 16px 56px; gap: 44px; }
+  .hero-title { font-size: 28px; }
+  .section-title { font-size: 26px; }
+  .step-card, .callout-box, .profile-content { padding: 18px; }
+  .flow-container, .honest-box { padding: 18px; }
+  .live-map-card { padding: 18px; }
+  .btn-primary { width: 100%; }
+  footer { padding: 32px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- סמלי וקטור מתוך pictos.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="p-profile-hike" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="30" y="14" width="8" height="13" rx="2" fill="var(--p-ink, currentColor)"/><path d="M27 15 L30 15" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L20 27 L20 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L28 27 L28 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L19 22 L15 22" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18 L14 39" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-work" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="13" r="4" fill="var(--p-ink, currentColor)"/><rect x="15" y="11" width="18" height="2" rx="0" fill="var(--p-bg, #fff)"/><path d="M18 11 A6 6 0 0 1 30 11 Z" fill="var(--p-ink, currentColor)"/><rect x="16" y="9" width="16" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="11" y="19" width="26" height="6" rx="4" fill="var(--p-ink, currentColor)"/><rect x="18" y="19" width="12" height="13" rx="4" fill="var(--p-ink, currentColor)"/><path d="M13.5 22 L13.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.5 22 L34.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 30 L20.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.5 30 L27.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-older" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L22 25 L22 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L26 25 L26 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L16 25" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 38 V25 A3 3 0 0 0 9 25 V27" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-contact" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-fall" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><path d="M26 28 L22 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="17" r="4" fill="var(--p-ink, currentColor)"/><path d="M27 29 L27 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 29 L35 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 25 L15 33" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.43 15.48 A22 22 0 0 1 29.3 15.12" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.59 11.57 A26 26 0 0 1 29.72 11.14" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-countdown" viewBox="0 0 48 48"><rect x="15" y="8" width="18" height="32" rx="4" fill="var(--p-ink, currentColor)"/><rect x="17" y="10" width="14" height="28" rx="2" fill="var(--p-bg, #fff)"/><circle cx="24" cy="20" r="5" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3"/><path d="M24 15 A5 5 0 1 1 19.67 22.5" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="19" y="31" width="10" height="4" rx="2" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-chain" viewBox="0 0 48 48"><circle cx="36" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M30 21 V18 A4 4 0 0 1 34 14 H38 A4 4 0 0 1 42 18 V21 Z" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M6 21 V18 A4 4 0 0 1 10 14 H14 A4 4 0 0 1 18 18 V21 Z" fill="var(--p-ink, currentColor)"/><path d="M26 11 L22 14 L26 17" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 22 L24 25 L27 22" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M4 44 V41 A4 4 0 0 1 8 37 H12 A4 4 0 0 1 16 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M18 44 V41 A4 4 0 0 1 22 37 H26 A4 4 0 0 1 30 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="38" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M32 44 V41 A4 4 0 0 1 36 37 H40 A4 4 0 0 1 44 41 V44 Z" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-takeover" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 20 L32 14 L32 7" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-car-leave" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="8" y="21" width="34" height="11" rx="4" fill="var(--p-ink, currentColor)"/><path d="M14 22 L21 13 H32 L38 22 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linejoin="round"/><path d="M19 21 L23 16 H26 V21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><path d="M29 21 V16 H31 L35 21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><circle cx="16" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="16" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="34" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="34" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 12 L15 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-watch" viewBox="0 0 48 48"><rect x="16" y="4" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><rect x="16" y="34" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="11" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="8" fill="var(--p-bg, #fff)"/><rect x="33" y="21" width="3" height="6" rx="1.5" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-live-map" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="34" r="2" fill="var(--p-bg, #fff)"/><circle cx="16.5" cy="31.5" r="2" fill="var(--p-bg, #fff)"/><circle cx="23" cy="29" r="2" fill="var(--p-bg, #fff)"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="4" stroke-linejoin="round"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-accent, currentColor)"/><circle cx="30" cy="17" r="2.94" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-offline-maps" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10 L12 13 L15 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 16 L16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-event-log" viewBox="0 0 48 48"><path d="M38 10 L38 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="10" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 10 L30 10" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="24" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 24 L30 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="38" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 38 L30 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 17 L22 17" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 31 L22 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+<!-- סמלי ממשק ותקן ISO 3864 -->
+<symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 3.5 L21.5 20 H2.5 Z" fill="#d97706" stroke="#0f172a" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5 L12 14" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#0f172a"/></symbol>
+<symbol id="i-alarm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="#d91f26" stroke="#0f172a" stroke-width="2"/><path d="M9 13.1 V10.1 A3 3 0 0 1 15 10.1 V13.1 L16.2 14.3 H7.8 L9 13.1 Z" fill="#ffffff"/><circle cx="12" cy="6.2" r="0.75" fill="#ffffff"/><path d="M10.8 14.9 A1.2 1.2 0 0 0 13.2 14.9 Z" fill="#ffffff"/></symbol>
+<symbol id="i-safe" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2" fill="#15803d" stroke="#0f172a" stroke-width="2"/><path d="M7.5 12 L10.5 15 L16.5 9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./" class="brand-group" aria-label="SAVE ME דף הבית">
+      <span class="brand-badge">SAVE ME</span>
+    </a>
+    <a href="./profile-hike-en.html" class="lang-switch" lang="en" hreflang="en" aria-label="English">EN</a>
+  </div>
+</header>
+
+<main class="main-content page-main">
+<section id="top">
+<h1 class="hero-title">טיול שטח: מה הטלפון מזהה ומה קורה אחרי נפילה</h1>
+<p class="text-body">האפליקציה מזהה בטלפון שלכם נפילה, ונותנת לכם זמן קצר לבטל. אם לא ביטלתם, היא שולחת התראה לאנשים שבחרתם מראש, עד 10 אנשים, שנקראים באפליקציה אנשי הקשר. ההתראה כוללת הודעות טקסט ושיחות מהטלפון שלכם. אנשי קשר שהתקינו אצלם את האפליקציה מקבלים בה אזעקה, כלומר צלצול חזק שנשמע גם כשהטלפון שלהם על שקט. אנשי קשר שמחוברים לטלגרם, שהיא אפליקציית הודעות כמו וואטסאפ, מקבלים את ההתראה גם שם.</p>
+<p class="text-body">הפרופיל ׳טיול שטח׳ מתאים למי שמטייל, רץ או רוכב על אופניים לבד בשטח. פרופיל הוא הגדרה באפליקציה שקובעת אילו נפילות הטלפון מזהה, איזה צליל הוא משמיע וכמה זמן יש לכם לבטל לפני שנשלחת התראה. יש שלושה פרופילים: ׳טיול שטח׳, ׳עבודה בשטח׳ ו׳מבוגרים׳. בעמוד הזה מוסבר בפירוט מה עושה הפרופיל ׳טיול שטח׳. זה הפרופיל שהאפליקציה משתמשת בו כל עוד לא בחרתם פרופיל אחר.</p>
+<p class="text-body">הטלפון מזהה נפילות רק כשהאפליקציה מופעלת. מפעילים אותה במתג שבראש המסך הראשי של האפליקציה, ואז כתוב לידו "פעיל".</p>
+
+</section>
+<section>
+<h2 class="section-title">איך הטלפון מזהה נפילה</h2>
+<p class="text-body">בפרופיל הזה הטלפון מזהה רק נפילה חזקה, כדי שתנועות רגילות בזמן הטיול לא ייחשבו לנפילה. הטלפון מזהה את הנפילה בעזרת חיישן התנועה שלו בלבד, ולכן הוא צריך להיות עליכם, בכיס או בתיק. כדי שהטלפון יחשוב שנפלתם, צריכים לקרות כל הדברים האלה, לפי הסדר:</p>
+<ol class="text-body list">
+<li>הטלפון צונח לפחות רבע שנייה. בזמן הצניחה החיישן של הטלפון מודד שהוא כמעט בלי משקל, כמו כל חפץ שנופל.</li>
+<li>תוך שנייה אחת אחרי הצניחה יש מכה חזקה, בעוצמה של פי 5 מכוח המשיכה או יותר.</li>
+<li>אחרי המכה הטלפון מחכה 2.5 שניות, ואז בודק במשך 10 שניות שהוא שוכב כמעט בלי תנועה.</li>
+<li>הטלפון שוכב בזווית אחרת מזו שבה הוא היה לפני הנפילה.</li>
+<li>המסך של הטלפון כבוי.</li>
+</ol>
+<p class="text-body">אם אחד מהדברים האלה לא קרה, הטלפון לא חושב שנפלתם, ושום דבר לא נשלח. למשל, אם המכה חלשה מפי 5 מכוח המשיכה, או אם הרמתם את הטלפון והוא זז בזמן הבדיקה של 10 השניות, זו לא נפילה.</p>
+<p class="text-body">הטלפון בודק את המסך רק פעם אחת, 12.5 שניות אחרי המכה. אם המסך דלוק באותו רגע, למשל כי אתם מנווטים במפה, הטלפון מניח שאתם משתמשים בו, ולא מזהה נפילה. אם המסך כבה מעצמו לפני הרגע הזה, הנפילה כן תזוהה.</p>
+</section>
+<section>
+<h2 class="section-title">צליל האזהרה והספירה לאחור</h2>
+<p class="text-body">כשהטלפון מזהה נפילה, הוא משמיע צליל אזהרה, רוטט ומציג מסך צהוב. בראש המסך כתוב "זוהתה נפילה", ומתחת לכותרת מופיע מספר גדול שסופר לאחור 15 שניות. הזמן הזה נקרא ספירה לאחור. אם לא קרה לכם כלום, לוחצים על הכפתור הירוק "אני בסדר", ושום דבר לא נשלח לאנשי הקשר. אפשר ללחוץ על "אני בסדר" גם בחלונית הקטנה שהאפליקציה מציגה בחלק העליון של המסך. תזוזה של הטלפון לא עוצרת את הספירה לאחור. רק לחיצה על "אני בסדר" עוצרת אותה.</p>
+<p class="text-body">שעון חכם הוא תוספת שלא חובה לקנות, והאפליקציה לשעון עובדת רק בשעונים של גרמין מדגם פניקס 8 ופניקס 8 סולארי. אם יש לכם שעון כזה והוא מחובר לטלפון, גם הוא רוטט ומציג את הספירה לאחור, ואפשר ללחוץ גם בו על "אני בסדר".</p>
+<p class="text-body">צליל האזהרה בפרופיל הזה הוא סירנה חזקה מאוד, שעולה ויורדת, כדי שגם אנשים שנמצאים בסביבה ישמעו אותה. הצליל מתחיל חלש ומתחזק בהדרגה, ואחרי 6 שניות הוא מגיע לעוצמה המלאה. בזמן הצליל האפליקציה מעלה את עוצמת השמע של השעון המעורר בטלפון עד הסוף, ואחרי שהצליל נגמר היא מחזירה אותה למה שהייתה. אם אתם גם איש קשר של מישהו אחר, ובמסך של איש הקשר באפליקציה, כלומר במסך שבו איש קשר רואה את ההתראות שהוא מקבל, בחרתם צליל אחר, הטלפון שלכם ישמיע את הצליל הזה במקום הסירנה.</p>
+<p class="text-body">מהרגע של המכה ועד שנשלחת התראה עוברות בערך 28 שניות. במשך 12.5 שניות הטלפון בודק אם נפלתם, ואחר כך יש עוד 15 שניות של ספירה לאחור.</p>
+<p class="text-body">מהרגע שהספירה לאחור מתחילה, הטלפון שולח לשרת את המיקום שלכם כל 5 שניות. השרת הוא המחשב של המערכת. כך, אם תישלח התראה, אנשי הקשר יוכלו לראות איפה אתם במפה החיה. המפה החיה היא עמוד שנפתח בכל דפדפן, מקישור שאנשי הקשר מקבלים, ומראה על מפה איפה הטלפון שלכם.</p>
+<p class="text-body">כשלוחצים על "אני בסדר", הטלפון שולח לשרת דיווח שאתם בסדר, ואנשי הקשר לא מקבלים שום דבר. האפליקציה שמה לב גם כשיצאתם מהרכב ולא חזרתם אליו תוך 90 דקות, כמו שמוסבר בהמשך העמוד. אם יצאתם מהרכב, הלחיצה על "אני בסדר" קובעת מחדש גם את הזמן עד ההתראה הזו. מרגע הלחיצה יש לכם שעה אחת עד ההתראה, גם אם לפני הלחיצה נשאר לכם יותר משעה.</p>
+</section>
+<section>
+<h2 class="section-title">מה קורה אם לא לחצתם על "אני בסדר"</h2>
+<p class="text-body">אם עברו 15 שניות ולא לחצתם על "אני בסדר", הטלפון שלכם עושה 3 דברים בבת אחת:</p>
+<ul class="text-body list">
+<li>הוא שולח הודעת טקסט לכל אנשי הקשר. בהודעה כתוב שהטלפון שלכם זיהה נפילה ושלא התקבל אישור שהכול בסדר. אם המיקום של הטלפון ידוע, יש בהודעה גם קישור למיקום האחרון שלו במפות של גוגל.</li>
+<li>הוא מתקשר לאנשי הקשר. קודם הוא מתקשר לאיש הקשר שבחרתם באפליקציה לקבל את השיחה הראשונה, ואם לא בחרתם, לאיש הקשר הראשון ברשימה. הוא מתקשר אליו 3 פעמים, שיחה אחת בכל דקה, גם אם הוא ענה, ואחר כך עובר לאיש הקשר הבא אחריו ברשימה, וכן הלאה. אחרי האחרון ברשימה הוא חוזר לראשון, וממשיך להתקשר עד שמישהו עוצר את ההתראה. בטלפון שלכם השיחה עוברת לרמקול.</li>
+<li>הוא מדווח לשרת. השרת שולח מיד את ההתראה לאנשי הקשר שמחוברים לטלגרם. באפליקציה של אנשי הקשר, האזעקה עוברת ביניהם לפי שרשרת ההתראות. קודם היא מצלצלת אצל איש הקשר הראשון ברשימה. אם הוא לא לוחץ על "קיבלתי, אני מטפל", היא מצלצלת גם אצל איש הקשר השני, ואחר כך אצל כל השאר. אם גם אז אף אחד לא לחץ, השרשרת חוזרת לאיש הקשר הראשון וממשיכה במעגל, עד שמישהו לוחץ על הכפתור הזה או מבטל את ההתראה. איש קשר לוחץ על "קיבלתי, אני מטפל" כשהוא לוקח את הטיפול בעניין על עצמו.</li>
+</ul>
+<p class="text-body">אנשי הקשר לא יודעים באיזה פרופיל בחרתם. אחרי נפילה, הם מקבלים אותה התראה בכל פרופיל.</p>
+<p class="text-body">אם אתם בסדר אחרי שההתראה כבר נשלחה, לוחצים במסך הראשי של האפליקציה על "אני בסדר, צריך עוד שעה". הכפתור הזה עוצר את השיחות מהטלפון שלכם, ואם יצאתם מהרכב, הוא גם נותן לכם עוד שעה. אם אף איש קשר עוד לא לחץ על "קיבלתי, אני מטפל", הכפתור גם מבטל את ההתראה. אז אנשי הקשר שמחוברים לטלגרם, ומי שכבר ראה את ההתראה באפליקציה, מקבלים הודעה שההתראה בוטלה. מי שמקבל רק הודעות טקסט ושיחות לא מקבל את ההודעה הזו, ולכן כדאי שתתקשרו אליו. אם מישהו כבר לחץ על "קיבלתי, אני מטפל", התקשרו בעצמכם למי שמטפל.</p>
+</section>
+<section>
+<h2 class="section-title">רכיבה מהירה על אופניים</h2>
+<p class="text-body">כדי לדעת אם אתם בנסיעה ברכב, האפליקציה מסתכלת רק על המהירות, לפי המיקום של הטלפון. היא לא יודעת אם אתם ברכב או על אופניים. כשהטלפון נע במהירות של 25 קמ"ש או יותר בשתי מדידות מיקום רצופות, הוא חושב שאתם בנסיעה ברכב. בזמן נסיעה הטלפון לא מזהה נפילות.</p>
+<p class="text-body">הטלפון מבין שהנסיעה נגמרה רק אחרי 4 דקות רצופות שבהן המהירות נמוכה מ־6 קמ"ש. לכן אחרי קטע מהיר, גם רכיבה איטית יותר, במהירות של 6 קמ"ש ומעלה אבל פחות מ־25 קמ"ש, נחשבת עדיין לנסיעה, והטלפון עדיין לא מזהה נפילות. כלומר, אם נפלתם בזמן רכיבה כזו, הטלפון לא יזהה את הנפילה.</p>
+<p class="text-body">אם נפלתם בזמן רכיבה כזו ואתם שוכבים בלי לזוז, אחרי 4 דקות הטלפון חושב שהנסיעה נגמרה ושיצאתם מהרכב, ומתחיל למנות 90 דקות. 85 דקות אחרי שהוא חושב שיצאתם מהרכב, הוא משמיע צליל אזהרה חזק. אם לא תלחצו על "אני בסדר", אנשי הקשר יקבלו התראה 90 דקות אחרי שהוא חושב שיצאתם מהרכב, כלומר בערך שעה וחצי אחרי הנפילה.</p>
+<p class="text-body">מצב נסיעה הוא הגדרה באפליקציה שבה הטלפון לא מונה 90 דקות מהיציאה מהרכב, ואנשי הקשר לא מקבלים התראה אם לא חזרתם אליו. מי שנוסע לעבודה או לסידורים מפעיל אותו, והוא לא נכבה לבד. כשמצב נסיעה מופעל ונפלתם בזמן רכיבה מהירה, אנשי הקשר לא יקבלו שום התראה, אלא אם תלחצו על כפתור המצוקה בשעון החכם, אם יש לכם שעון כזה. כפתור המצוקה הוא כפתור באפליקציה של השעון, שמפעיל התראה גם בלי נפילה. הוא עובד בכל פרופיל, וגם בזמן נסיעה, כל עוד השעון מחובר לטלפון.</p>
+</section>
+<section>
+<h2 class="section-title">מה הפרופיל לא משנה</h2>
+<p class="text-body">ההתראה על כך שלא חזרתם לרכב עובדת באותה דרך בכל הפרופילים. 85 דקות אחרי שיצאתם מהרכב הטלפון משמיע צליל אזהרה חזק, ואחרי 90 דקות אנשי הקשר מקבלים התראה.</p>
+<p class="text-body">שרשרת ההתראות זהה בכל הפרופילים, וגם כפתור המצוקה בשעון החכם עובד באותה דרך בכל הפרופילים.</p>
+</section>
+<section>
+<h2 class="section-title">איך בוחרים את הפרופיל</h2>
+<p class="text-body">במסך הראשי של האפליקציה יש שורה שבה כתוב "פרופיל:" ואחריו שם הפרופיל שבחרתם. לוחצים עליה, ונפתח חלון שבו כתוב "על מי הטלפון שומר?". בוחרים ב־׳טיול שטח׳, והפרופיל נשמר מיד. תוך 3 שניות הטלפון כבר מזהה נפילות לפי הפרופיל החדש. ספירה לאחור שכבר התחילה נמשכת לפי הפרופיל הקודם.</p>
+<p class="text-body">באותו מקום יש גם שורה שבה כתוב "מה מפעיל התראה ומה קורה אחר כך". היא פותחת באפליקציה הסבר על הפרופיל שבחרתם.</p>
+<p class="text-body">כדי לשמוע את צליל האזהרה בלי לשלוח כלום, לוחצים במסך הראשי על "בדיקת אזעקה". למרות השם של הכפתור, הוא משמיע רק את צליל האזהרה בטלפון שלכם במשך 15 שניות, ולא מפעיל אזעקה אצל אנשי הקשר. שום דבר לא נשלח. הבדיקה עובדת רק כשהאפליקציה מופעלת.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">SAVE ME</div>
+    <ul class="footer-links">
+      <li><a href="./privacy.html">פרטיות</a></li>
+      <li><a href="mailto:eli.marshak@gmail.com">יצירת קשר</a></li>
+    </ul>
+    <div class="footer-domain" lang="en">savemesos.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

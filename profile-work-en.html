@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAVE ME: Field work</title>
+<link rel="canonical" href="https://savemesos.com/profile-work-en.html">
+<link rel="alternate" hreflang="he" href="https://savemesos.com/profile-work.html">
+<link rel="alternate" hreflang="en" href="https://savemesos.com/profile-work-en.html">
+<link rel="alternate" hreflang="x-default" href="https://savemesos.com/profile-work.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Rubik:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f172a;
+  --ink-secondary: #475569;
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --red-alarm: #d91f26;
+  --amber-warning: #d97706;
+  --green-safe: #15803d;
+  --blue-info: #1d4ed8;
+  --p-ink: #0f172a;
+  --p-bg: #ffffff;
+  --p-accent: #d91f26;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-padding-top: 96px; }
+body {
+  font-family: 'Assistant', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 14px 24px;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-badge {
+  background-color: var(--red-alarm);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+  direction: ltr;
+}
+
+.lang-switch {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-alt);
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 12px;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+.hero-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.text-body {
+  font-size: 19px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.text-body + .text-body {
+  margin-top: 8px;
+}
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 12px 28px;
+  background-color: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.link-secondary {
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* כרטיס המפה החיה, בהיר */
+.live-map-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.live-map-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.map-mockup-area {
+  height: 220px;
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contour-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+}
+.map-picto {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 2;
+}
+
+/* תיבות */
+.callout-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.callout-box.dashed {
+  border: 2px dashed var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+}
+.callout-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* רשת כרטיסי השלבים */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.steps-grid .step-card.wide {
+  grid-column: 1 / -1;
+}
+.step-card {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+}
+.step-num-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-badge {
+  background-color: var(--ink);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.step-header h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.step-icon-large {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+/* רשת כרטיסי הפרופילים */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 24px;
+}
+.profile-card {
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.profile-card.contact-path {
+  border-style: dashed;
+  background-color: #fcfdfe;
+}
+.profile-img-container {
+  height: 220px;
+  background-color: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img-container svg {
+  width: 120px;
+  height: 120px;
+  --p-bg: #f1f5f9;
+}
+.profile-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+.profile-card.contact-path .profile-content {
+  padding-top: 32px;
+}
+.profile-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.profile-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* תרשים */
+.flow-container {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.flow-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: var(--surface-alt);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.legend-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.flow-container .callout-box {
+  background-color: var(--surface-alt);
+}
+.flow-step-block {
+  border: 2px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.flow-step-block.yellow-warning {
+  border-color: var(--amber-warning);
+  background-color: #fffbeb;
+}
+.flow-step-block.red-alarm {
+  border-color: var(--red-alarm);
+  background-color: #fef2f2;
+}
+.flow-stage-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.yellow-warning .flow-stage-title { color: #92400e; }
+.red-alarm .flow-stage-title { color: #991b1b; }
+
+/* עוד עמודים */
+.pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+  list-style: none;
+}
+.page-link-tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-secondary);
+  font-weight: 600;
+  font-size: 18px;
+}
+.page-link-tile svg {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+a.page-link-tile {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  background-color: var(--surface);
+  border: 2px solid var(--ink);
+}
+a.page-link-tile:hover { background-color: var(--surface-alt); }
+.text-body a { color: var(--blue-info); text-underline-offset: 3px; }
+
+/* מה חשוב לדעת */
+.honest-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.honest-box .text-body + .text-body {
+  margin-top: 0;
+}
+.source-line {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  text-align: left;
+  line-height: 1.5;
+}
+
+footer {
+  border-top: 3px solid var(--ink);
+  background-color: var(--surface);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style: none;
+  font-weight: 700;
+}
+.footer-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-domain {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+
+.page-main { max-width: 860px; }
+.sub-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+.text-body.list {
+  margin-inline-start: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cmd {
+  display: block;
+  font-family: 'Rubik', monospace;
+  font-weight: 700;
+  font-size: 18px;
+  direction: ltr;
+  text-align: left;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  word-break: break-all;
+}
+.cmd a { color: var(--blue-info); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 12px 16px; }
+  .main-content { padding: 24px 16px 56px; gap: 44px; }
+  .hero-title { font-size: 28px; }
+  .section-title { font-size: 26px; }
+  .step-card, .callout-box, .profile-content { padding: 18px; }
+  .flow-container, .honest-box { padding: 18px; }
+  .live-map-card { padding: 18px; }
+  .btn-primary { width: 100%; }
+  footer { padding: 32px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- סמלי וקטור מתוך pictos.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="p-profile-hike" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="30" y="14" width="8" height="13" rx="2" fill="var(--p-ink, currentColor)"/><path d="M27 15 L30 15" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L20 27 L20 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L28 27 L28 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L19 22 L15 22" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18 L14 39" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-work" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="13" r="4" fill="var(--p-ink, currentColor)"/><rect x="15" y="11" width="18" height="2" rx="0" fill="var(--p-bg, #fff)"/><path d="M18 11 A6 6 0 0 1 30 11 Z" fill="var(--p-ink, currentColor)"/><rect x="16" y="9" width="16" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="11" y="19" width="26" height="6" rx="4" fill="var(--p-ink, currentColor)"/><rect x="18" y="19" width="12" height="13" rx="4" fill="var(--p-ink, currentColor)"/><path d="M13.5 22 L13.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.5 22 L34.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 30 L20.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.5 30 L27.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-profile-older" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L22 25 L22 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L26 25 L26 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L16 25" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 38 V25 A3 3 0 0 0 9 25 V27" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-contact" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-fall" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><path d="M26 28 L22 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="17" r="4" fill="var(--p-ink, currentColor)"/><path d="M27 29 L27 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 29 L35 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 25 L15 33" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.43 15.48 A22 22 0 0 1 29.3 15.12" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.59 11.57 A26 26 0 0 1 29.72 11.14" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-countdown" viewBox="0 0 48 48"><rect x="15" y="8" width="18" height="32" rx="4" fill="var(--p-ink, currentColor)"/><rect x="17" y="10" width="14" height="28" rx="2" fill="var(--p-bg, #fff)"/><circle cx="24" cy="20" r="5" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3"/><path d="M24 15 A5 5 0 1 1 19.67 22.5" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="19" y="31" width="10" height="4" rx="2" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-chain" viewBox="0 0 48 48"><circle cx="36" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M30 21 V18 A4 4 0 0 1 34 14 H38 A4 4 0 0 1 42 18 V21 Z" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M6 21 V18 A4 4 0 0 1 10 14 H14 A4 4 0 0 1 18 18 V21 Z" fill="var(--p-ink, currentColor)"/><path d="M26 11 L22 14 L26 17" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 22 L24 25 L27 22" fill="none" stroke="var(--p-accent, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M4 44 V41 A4 4 0 0 1 8 37 H12 A4 4 0 0 1 16 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M18 44 V41 A4 4 0 0 1 22 37 H26 A4 4 0 0 1 30 41 V44 Z" fill="var(--p-ink, currentColor)"/><circle cx="38" cy="31" r="4" fill="var(--p-ink, currentColor)"/><path d="M32 44 V41 A4 4 0 0 1 36 37 H40 A4 4 0 0 1 44 41 V44 Z" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-takeover" viewBox="0 0 48 48"><circle cx="24" cy="11" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 21 L24 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L22 28 L22 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 L26 28 L26 40" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 20 L20 24 L16 20" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 20 L32 14 L32 7" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="14" width="8" height="14" rx="2" fill="var(--p-ink, currentColor)"/><rect x="10" y="16" width="4" height="10" rx="1" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-car-leave" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="8" y="21" width="34" height="11" rx="4" fill="var(--p-ink, currentColor)"/><path d="M14 22 L21 13 H32 L38 22 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linejoin="round"/><path d="M19 21 L23 16 H26 V21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><path d="M29 21 V16 H31 L35 21 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="1" stroke-linejoin="round"/><circle cx="16" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="16" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="34" cy="33" r="6.5" fill="var(--p-bg, #fff)"/><circle cx="34" cy="33" r="4.5" fill="var(--p-ink, currentColor)"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 12 L15 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-watch" viewBox="0 0 48 48"><rect x="16" y="4" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><rect x="16" y="34" width="14" height="10" rx="2" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="11" fill="var(--p-ink, currentColor)"/><circle cx="23" cy="24" r="8" fill="var(--p-bg, #fff)"/><rect x="33" y="21" width="3" height="6" rx="1.5" fill="var(--p-ink, currentColor)"/></symbol>
+<symbol id="p-live-map" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="34" r="2" fill="var(--p-bg, #fff)"/><circle cx="16.5" cy="31.5" r="2" fill="var(--p-bg, #fff)"/><circle cx="23" cy="29" r="2" fill="var(--p-bg, #fff)"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-bg, #fff)" stroke="var(--p-bg, #fff)" stroke-width="4" stroke-linejoin="round"/><path d="M30 26.9 L25.05 21.95 A7 7 0 1 1 34.95 21.95 Z" fill="var(--p-accent, currentColor)"/><circle cx="30" cy="17" r="2.94" fill="var(--p-bg, #fff)"/></symbol>
+<symbol id="p-offline-maps" viewBox="0 0 48 48"><path d="M5 14 L15 11 V37 L5 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M19 11 L29 14 V40 L19 37 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><path d="M33 14 L43 11 V37 L33 40 Z" fill="var(--p-ink, currentColor)" stroke="var(--p-ink, currentColor)" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" fill="var(--p-bg, #fff)"/><circle cx="12" cy="12" r="8" fill="var(--p-accent, currentColor)"/><path d="M12 8 L12 13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10 L12 13 L15 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 16 L16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="p-event-log" viewBox="0 0 48 48"><path d="M38 10 L38 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="10" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 10 L30 10" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="24" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 24 L30 24" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="38" r="4" fill="var(--p-ink, currentColor)"/><path d="M9 38 L30 38" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 17 L22 17" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 31 L22 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+<!-- סמלי ממשק ותקן ISO 3864 -->
+<symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 3.5 L21.5 20 H2.5 Z" fill="#d97706" stroke="#0f172a" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5 L12 14" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#0f172a"/></symbol>
+<symbol id="i-alarm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="#d91f26" stroke="#0f172a" stroke-width="2"/><path d="M9 13.1 V10.1 A3 3 0 0 1 15 10.1 V13.1 L16.2 14.3 H7.8 L9 13.1 Z" fill="#ffffff"/><circle cx="12" cy="6.2" r="0.75" fill="#ffffff"/><path d="M10.8 14.9 A1.2 1.2 0 0 0 13.2 14.9 Z" fill="#ffffff"/></symbol>
+<symbol id="i-safe" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2" fill="#15803d" stroke="#0f172a" stroke-width="2"/><path d="M7.5 12 L10.5 15 L16.5 9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./index-en.html" class="brand-group" aria-label="SAVE ME home page">
+      <span class="brand-badge">SAVE ME</span>
+    </a>
+    <a href="./profile-work.html" class="lang-switch" lang="he" hreflang="he" dir="rtl">עברית</a>
+  </div>
+</header>
+
+<main class="main-content page-main">
+<section id="top">
+<h1 class="hero-title">Field work: a fall, and a phone that does not move for 45 seconds</h1>
+<p class="text-body">The app on your phone detects when you fall, and other situations in which you may need help, and gives you a short time to cancel. If you do not cancel, it sends an alert to people you chose in advance, up to 10 people, who are called contacts in the app. The alert includes text messages and calls from your phone. Contacts who have installed the app get an alarm in it, that is, a loud ring that is heard even when their phone is on silent. Contacts who are connected to Telegram, a messaging app like WhatsApp, also get the alert there.</p>
+<p class="text-body">The 'Field work' profile suits anyone who works alone on a work site. A profile is a setting in the app that decides which falls the phone detects, which sound it plays and how much time you have to cancel before an alert is sent. There are three profiles: 'Hiking and outdoors', 'Field work' and 'Older adults'. This page explains in detail what the 'Field work' profile does.</p>
+<p class="text-body">In this profile the phone notices two things: a fall, and the phone not moving at all for 45 seconds. It does this only when the app is turned on. You turn it on with the switch at the top of the app's main screen, and then it says "On" next to it.</p>
+
+</section>
+<section>
+<h2 class="section-title">How the phone detects a fall</h2>
+<p class="text-body">In this profile the phone also detects a moderate fall, for example a fall from a ladder, and not only a hard fall. The phone detects the fall with its motion sensor only, so it needs to be on you, in a pocket or in a bag. For the phone to decide that you fell, all of these things need to happen, in this order:</p>
+<ol class="text-body list">
+<li>The phone drops for at least a fifth of a second. While it drops, the phone's sensor measures that it is almost weightless, like any object that falls.</li>
+<li>Within 1 second after the drop there is an impact, with a force of 3.5 times the force of gravity or more.</li>
+<li>After the impact the phone waits 2.5 seconds, and then checks for 20 seconds that it is lying almost without movement.</li>
+<li>The phone is lying at a different angle from the one it was at before the fall.</li>
+<li>The phone's screen is off.</li>
+</ol>
+<p class="text-body">If one of these things did not happen, the phone does not decide that you fell, and nothing is sent. For example, if the impact is weaker than 3.5 times the force of gravity, or if you picked up the phone and it moved during the 20-second check, it is not a fall.</p>
+<p class="text-body">The phone checks the screen only once, 22.5 seconds after the impact. If the screen is on at that moment, the phone assumes you are using it, and does not detect a fall. If the screen turned off by itself before that moment, the fall is detected.</p>
+</section>
+<section>
+<h2 class="section-title">A phone that has not moved at all for 45 seconds</h2>
+<p class="text-body">When someone loses consciousness with the phone in their pocket, the phone does not move at all. So in this profile the phone also notices when it has not moved for 45 seconds, even without a fall. Every time the phone moves, the 45 seconds start again from the beginning.</p>
+<p class="text-body">When 45 seconds pass without movement, the phone checks whether its screen is on and whether it is charging. If the screen is on, it assumes someone is looking at it. If it is charging, it assumes it is lying on the charger and not in someone's pocket. In both of these cases it does not start a countdown, and the 45 seconds start again from the beginning. In 3 situations, the phone also does not check whether it is moving. The first situation is when it thinks you are driving, as explained further down this page. The second situation is when another countdown is already showing on the screen, and the third situation is when it is still checking whether there was a fall.</p>
+<p class="text-body">If 45 seconds have passed without movement, the phone plays two rising tones, like a question, vibrates and shows a yellow screen. At the top of the screen it says "The phone hasn't moved for 45 seconds", and under the heading a large number counts down 15 seconds. This time is called the countdown. The screen has two buttons.</p>
+<p class="text-body">If you tap "I'm OK", nothing is sent to your contacts. If the phone keeps lying without moving, the countdown will start again after 45 seconds.</p>
+<p class="text-body">If you tap "I'm done, stop checking until I pick up the phone", nothing is sent either, and the phone stops noticing that it is not moving, until you pick it up again. Use this button when you put the phone down on purpose, for example on a table.</p>
+<p class="text-body">Both buttons also appear in the small notification that the app shows at the top of the screen. There the second button is called "I'm done, stop checking".</p>
+<p class="text-body">After you tap "I'm done, stop checking until I pick up the phone", the phone ignores movements for the first 10 seconds, so that putting the phone down right after the tap does not count as picking it up. After that, when you pick up the phone or move it noticeably, the check turns back on, and the 45 seconds start again from the beginning. This pause has no time limit. It also ends when you turn the app off and on again, or when the phone switches off and on. During the pause the phone keeps detecting falls.</p>
+<p class="text-body">A smartwatch is an extra that you do not have to buy, and the watch app works only on Garmin watches, model fēnix 8 and fēnix 8 Solar. If you have such a watch and it is connected to the phone, it also vibrates and shows the countdown, and you can press "I'm OK" on it. On the watch's countdown screen it says "Impact detected", as after a fall, and not that the phone has not moved. The button "I'm done, stop checking until I pick up the phone" is only on the phone.</p>
+<p class="text-body">This check works only when the phone is on you. If you fell and the phone is lying somewhere else, it will not know that something happened to you.</p>
+</section>
+<section>
+<h2 class="section-title">The warning sound and the countdown after a fall</h2>
+<p class="text-body">When the phone detects a fall, it plays a warning sound, vibrates and shows a yellow screen. At the top of the screen it says "Fall detected", and under the heading a large number counts down 15 seconds. If nothing happened to you, tap the green button "I'm OK", and nothing is sent to your contacts. You can also tap "I'm OK" in the small notification that the app shows at the top of the screen, and you can also press it on the smartwatch, if you have one and it is connected to the phone. Moving the phone does not stop the countdown. Only tapping "I'm OK" stops it.</p>
+<p class="text-body">After a fall, the warning sound in this profile is a chime of three rising tones, like a bell, which repeats every 2 seconds. The chime is pleasant to the ear, but it is not quiet. The sound starts quietly and gets louder gradually, and after 6 seconds it reaches full volume. While the sound plays, the app turns the phone's alarm clock volume all the way up, and after the sound ends it sets it back to what it was.</p>
+<p class="text-body">From the moment of the impact until an alert is sent, about 38 seconds pass. For 22.5 seconds the phone checks whether you fell, and then there are another 15 seconds of countdown.</p>
+</section>
+<section>
+<h2 class="section-title">What happens during the countdown and after you tap</h2>
+<p class="text-body">From the moment the countdown starts, after a fall or after 45 seconds without movement, the phone sends your location to the server every 5 seconds. The server is the system's computer. That way, if an alert is sent, your contacts will be able to see where you are on the live map. The live map is a page that opens in any browser, from a link that the contacts get, and shows on a map where your phone is.</p>
+<p class="text-body">When you tap "I'm OK", the phone sends the server a report that you are OK, and your contacts get nothing. The app also notices when you got out of the car and did not come back to it within 90 minutes, as explained further down this page. If you got out of the car, tapping "I'm OK" also resets the time until that alert. From the moment you tap, you have 1 hour until the alert, even if you had more than an hour left before you tapped. The button "I'm done, stop checking until I pick up the phone" sends nothing to the server, so it does not put off the alert for not coming back to the car.</p>
+</section>
+<section>
+<h2 class="section-title">What happens if you did not tap any button</h2>
+<p class="text-body">If 15 seconds have passed and you did not tap any button, your phone does 3 things at once:</p>
+<ul class="text-body list">
+<li>It sends a text message to all your contacts. After a fall, the text message says that your phone detected a fall. After 45 seconds without movement, it says that your phone has not moved at all for 45 seconds. In both cases the text message also says that no confirmation was received that everything is OK. If the phone's location is known, the text message also has a link to its last location in Google Maps.</li>
+<li>It calls your contacts. First it calls the contact you chose in the app to get the first call, or, if you did not choose one, the first contact on the list. It calls them 3 times, one call every minute, even if they answered, and then moves on to the next contact after them on the list, and so on. After the last one on the list it goes back to the first, and keeps calling until someone stops the alert. On your phone the call switches to speakerphone.</li>
+<li>It reports to the server. The server immediately sends the alert to the contacts connected to Telegram, and there too it says what happened: a fall, or a phone that has not moved for 45 seconds. In the contacts' app, the alarm passes between them according to the alert chain. First it rings for the first contact on the list. If they do not tap "Got it, I'm handling it", it rings for the second contact too, and then for all the others. If still nobody has tapped, the alert chain goes back to the first contact and keeps going round, until someone taps that button or cancels the alert. A contact taps "Got it, I'm handling it" when they take on handling the situation themselves.</li>
+</ul>
+<p class="text-body">Your contacts do not know which profile you chose. They see only what happened.</p>
+<p class="text-body">If you are OK after the alert has already been sent, tap "I'm OK, give me another hour" on the app's main screen. This button stops the calls from your phone, and if you got out of the car, it also gives you another hour. If no contact has tapped "Got it, I'm handling it" yet, the button also cancels the alert. Then the contacts connected to Telegram, and anyone who has already seen the alert in the app, get a message that the alert was cancelled. Anyone who gets only text messages and calls does not get this message, so it is a good idea to call them. If someone has already tapped "Got it, I'm handling it", call the person handling it yourself.</p>
+</section>
+<section>
+<h2 class="section-title">Driving to the work site</h2>
+<p class="text-body">To know whether you are driving, the app looks only at the speed, based on the phone's location. When the phone moves at 25 km/h or more for two location readings in a row, it thinks you are driving. While you are driving, the phone does not detect falls, and does not check whether it is moving. It understands that the drive is over only after 4 minutes in a row in which the speed is below 6 km/h.</p>
+<p class="text-body">Please note: if you drove to the work site, when the drive is over the phone thinks you got out of the car, and starts counting 90 minutes. 85 minutes after you got out of the car it plays a loud warning sound, and if you do not tap "I'm OK", your contacts will get an alert after 90 minutes. Each time you tap "I'm OK", the alert moves to 1 hour after the tap, and 55 minutes after the tap the phone warns you again.</p>
+<p class="text-body">So that this does not happen on an ordinary workday, you can turn on Travel mode in the app. Travel mode is a setting in which the phone does not count 90 minutes from getting out of the car, and your contacts do not get an alert if you do not come back to it. In Travel mode the phone keeps detecting falls and noticing when it is not moving. Travel mode does not turn off on its own, so before you go on a hike you need to turn it off.</p>
+</section>
+<section>
+<h2 class="section-title">What the profile does not change</h2>
+<p class="text-body">The alert for not coming back to the car works the same way in all profiles. In the 'Field work' profile too, when you have not come back to the car, a loud warning sound plays, as in the 'Hiking and outdoors' profile, and not the chime that plays after a fall.</p>
+<p class="text-body">The alert chain is the same in all profiles. The SOS button on the smartwatch also works the same way in all profiles, as long as the watch is connected to the phone. The SOS button is a button in the watch app that starts an alert even without a fall.</p>
+</section>
+<section>
+<h2 class="section-title">How to choose the profile</h2>
+<p class="text-body">On the app's main screen there is a line that says "Profile:" followed by the name of the profile you chose. Tap it, and a window opens that says "Who does the phone protect?". Choose 'Field work', and the profile is saved immediately. Within 3 seconds the phone already works according to the new profile. A countdown that has already started continues according to the previous profile.</p>
+<p class="text-body">In the same place there is also a line that says "What starts an alert and what happens next". It opens an explanation in the app about the profile you chose.</p>
+<p class="text-body">To hear the warning sound without sending anything, tap "Test the alarm" on the main screen. Despite the button's name, it only plays the warning sound on your phone for 15 seconds, and does not set off an alarm for your contacts. Nothing is sent. In this profile the test plays the chime you hear after a fall. The two rising tones, which play when the phone is not moving, cannot be heard in the test. The test works only when the app is turned on.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">SAVE ME</div>
+    <ul class="footer-links">
+      <li><a href="./privacy.html#en">Privacy</a></li>
+      <li><a href="mailto:eli.marshak@gmail.com">Contact</a></li>
+    </ul>
+    <div class="footer-domain">savemesos.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
