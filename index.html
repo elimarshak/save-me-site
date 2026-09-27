@@ -26,6 +26,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-padding-top: 96px; }
 body {
   font-family: 'Assistant', sans-serif;
   background-color: var(--bg-page);
@@ -35,33 +36,25 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: var(--surface);
-  min-height: 100vh;
-  box-shadow: 0 0 24px rgba(0,0,0,0.06);
-  border-inline: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Header מדוגמה 5 */
-header {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
   background-color: var(--surface);
   border-bottom: 2px solid var(--border);
-  padding: 12px 16px;
+  padding: 14px 24px;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header-brand {
+.brand-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   text-decoration: none;
 }
 .brand-badge {
@@ -69,88 +62,70 @@ header {
   color: #fff;
   font-family: 'Rubik', sans-serif;
   font-weight: 900;
-  font-size: 18px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
   letter-spacing: 0.05em;
   direction: ltr;
 }
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.lang-btn {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink-secondary);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background-color: var(--surface-alt);
-}
-.menu-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface-alt);
-  cursor: pointer;
-}
 
-main {
-  padding: 20px 16px 40px;
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 64px;
 }
 
 section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 .section-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 900;
   line-height: 1.25;
   color: var(--ink);
   border-bottom: 3px solid var(--ink);
-  padding-bottom: 8px;
+  padding-bottom: 12px;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
 }
 .hero-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--ink);
 }
 .text-body {
   font-size: 19px;
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .text-body + .text-body {
   margin-top: 8px;
 }
-
 .hero-actions {
+  margin-top: 24px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
 }
-.btn-primary-link {
-  display: flex;
+.btn-primary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 60px;
-  padding: 12px 20px;
+  padding: 12px 28px;
   background-color: var(--ink);
   color: #fff;
   border-radius: 8px;
@@ -160,104 +135,176 @@ section {
   text-decoration: none;
   text-align: center;
 }
-.btn-secondary-link {
-  display: inline-block;
-  font-size: 18px;
+.link-secondary {
   font-weight: 700;
   color: var(--ink-secondary);
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-align: center;
-  padding: 8px;
 }
 
-.callout-box {
-  background-color: var(--surface-alt);
+/* כרטיס המפה החיה, בהיר */
+.live-map-card {
+  background-color: var(--surface);
   border: 2px solid var(--border-strong);
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+}
+.live-map-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.map-mockup-area {
+  height: 220px;
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contour-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+}
+.map-picto {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 2;
+}
+
+/* תיבות */
+.callout-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.callout-box.dashed {
+  border: 2px dashed var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
 }
 .callout-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 21px;
-  font-weight: 800;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.tag-approval {
-  display: inline-block;
-  background-color: #fef3c7;
-  color: #92400e;
-  border: 1px dashed #d97706;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-inline-start: 4px;
+  font-size: 24px;
+  font-weight: 900;
 }
 
-/* כרטיסי שלבים */
+/* רשת כרטיסי השלבים */
+.steps-grid {
+  columns: 2 460px;
+  column-gap: 24px;
+}
+.steps-grid .step-card {
+  break-inside: avoid;
+  margin-bottom: 24px;
+}
 .step-card {
+  background-color: var(--surface);
   border: 2px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 .step-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
 }
-.step-num {
-  font-family: 'Rubik', sans-serif;
-  font-size: 20px;
-  font-weight: 900;
+.step-num-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-badge {
   background-color: var(--ink);
-  color: #ffffff;
-  width: 36px;
-  height: 36px;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 .step-header h3 {
   font-family: 'Rubik', sans-serif;
   font-size: 20px;
   font-weight: 800;
+  line-height: 1.3;
+  color: var(--ink);
 }
-.step-picto {
-  width: 44px;
-  height: 44px;
+.step-icon-large {
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
 }
 
-/* כרטיסי פרופילים */
+/* רשת כרטיסי הפרופילים */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 24px;
+}
 .profile-card {
+  background-color: var(--surface);
   border: 2px solid var(--ink);
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 .profile-card.contact-path {
-  border: 2px dashed var(--ink);
-  background-color: #f8fafc;
+  border-style: dashed;
+  background-color: #fcfdfe;
 }
-.profile-top {
+.profile-img-container {
+  height: 220px;
+  background-color: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img-container svg {
+  width: 120px;
+  height: 120px;
+  --p-bg: #f1f5f9;
+}
+.profile-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+.profile-card.contact-path .profile-content {
+  padding-top: 32px;
+}
+.profile-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -265,41 +312,33 @@ section {
 }
 .profile-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-}
-.btn-profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 10px 16px;
-  background-color: var(--surface-alt);
-  color: var(--ink);
-  border: 2px solid var(--ink);
-  border-radius: 6px;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 900;
 }
 
-/* תרשים זרימה */
+/* תרשים */
+.flow-container {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 .flow-legend {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 12px;
+  gap: 10px;
+  padding: 16px;
   background-color: var(--surface-alt);
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--border);
 }
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 17px;
   font-weight: 600;
 }
@@ -308,56 +347,75 @@ section {
   height: 24px;
   flex-shrink: 0;
 }
-
-.flow-block {
+.flow-container .callout-box {
+  background-color: var(--surface-alt);
+}
+.flow-step-block {
   border: 2px solid var(--border-strong);
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
-.flow-block.yellow-stage {
+.flow-step-block.yellow-warning {
   border-color: var(--amber-warning);
   background-color: #fffbeb;
 }
-.flow-block.red-stage {
+.flow-step-block.red-alarm {
   border-color: var(--red-alarm);
   background-color: #fef2f2;
 }
 .flow-stage-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
+  line-height: 1.3;
   display: flex;
   align-items: center;
   gap: 8px;
 }
+.yellow-warning .flow-stage-title { color: #92400e; }
+.red-alarm .flow-stage-title { color: #991b1b; }
 
-/* קישורי עמודים */
-.page-links-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* עוד עמודים */
+.pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
   list-style: none;
 }
-.page-link-item {
+.page-link-tile {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  background-color: #ffffff;
-  text-decoration: none;
-  color: var(--ink);
+  gap: 16px;
+  padding: 18px 20px;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-secondary);
   font-weight: 600;
   font-size: 18px;
 }
-.page-link-item svg {
+.page-link-tile svg {
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
 }
 
+/* מה חשוב לדעת */
+.honest-box {
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.honest-box .text-body + .text-body {
+  margin-top: 0;
+}
 .source-line {
   font-size: 14px;
   color: var(--ink-secondary);
@@ -365,29 +423,31 @@ section {
   line-height: 1.5;
 }
 
-/* פוטר */
 footer {
   border-top: 3px solid var(--ink);
-  background-color: var(--surface-alt);
-  padding: 24px 16px;
+  background-color: var(--surface);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
-.footer-logo {
+.footer-brand {
   font-family: 'Rubik', sans-serif;
   font-weight: 900;
-  font-size: 24px;
+  font-size: 26px;
   direction: ltr;
   text-align: right;
 }
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
   list-style: none;
   font-weight: 700;
-  font-size: 17px;
 }
 .footer-links a {
   color: var(--ink);
@@ -396,18 +456,32 @@ footer {
 }
 .footer-domain {
   font-family: 'Rubik', sans-serif;
-  font-size: 16px;
   font-weight: 700;
+  color: var(--ink-secondary);
   direction: ltr;
   text-align: right;
-  color: var(--ink-secondary);
+}
+
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 12px 16px; }
+  .main-content { padding: 24px 16px 56px; gap: 44px; }
+  .hero-title { font-size: 28px; }
+  .section-title { font-size: 26px; }
+  .step-card, .callout-box, .profile-content { padding: 18px; }
+  .flow-container, .honest-box { padding: 18px; }
+  .live-map-card { padding: 18px; }
+  .btn-primary { width: 100%; }
+  footer { padding: 32px 16px; }
 }
 </style>
 </head>
 <body>
 
 <!-- סמלי וקטור מתוך pictos.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
 <symbol id="p-profile-hike" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="30" y="14" width="8" height="13" rx="2" fill="var(--p-ink, currentColor)"/><path d="M27 15 L30 15" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L20 27 L20 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L28 27 L28 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L19 22 L15 22" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18 L14 39" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="p-profile-work" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="13" r="4" fill="var(--p-ink, currentColor)"/><rect x="15" y="11" width="18" height="2" rx="0" fill="var(--p-bg, #fff)"/><path d="M18 11 A6 6 0 0 1 30 11 Z" fill="var(--p-ink, currentColor)"/><rect x="16" y="9" width="16" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><rect x="11" y="19" width="26" height="6" rx="4" fill="var(--p-ink, currentColor)"/><rect x="18" y="19" width="12" height="13" rx="4" fill="var(--p-ink, currentColor)"/><path d="M13.5 22 L13.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34.5 22 L34.5 31" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 30 L20.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.5 30 L27.5 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="p-profile-older" viewBox="0 0 48 48"><rect x="4" y="41" width="40" height="3" rx="1.5" fill="var(--p-ink, currentColor)"/><circle cx="24" cy="8" r="4" fill="var(--p-ink, currentColor)"/><path d="M24 18 L24 21" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L22 25 L22 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23 L26 25 L26 37" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17 L16 25" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 38 V25 A3 3 0 0 0 9 25 V27" fill="none" stroke="var(--p-ink, currentColor)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -428,26 +502,39 @@ footer {
 <symbol id="i-safe" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2" fill="#15803d" stroke="#0f172a" stroke-width="2"/><path d="M7.5 12 L10.5 15 L16.5 9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
-<div class="container">
-
-  <!-- Header מדוגמה 5 -->
-  <header>
-    <a href="./" class="header-brand" aria-label="SAVE ME דף הבית">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./" class="brand-group" aria-label="SAVE ME דף הבית">
       <span class="brand-badge">SAVE ME</span>
     </a>
-  </header>
+  </div>
+</header>
 
-  <main>
+<main class="main-content">
 
     <!-- 1. פתיחה -->
-    <section id="hero">
+    <section id="hero" class="hero-layout">
+      <div>
       <h1 class="hero-title">אם תיפלו ולא תוכלו לבקש עזרה, הטלפון יודיע לאנשים שבחרתם מראש.</h1>
       <p class="text-body">
         זו אפליקציה לטלפונים עם אנדרואיד, למשל טלפונים של סמסונג, שיאומי או גוגל. כמעט כל טלפון שהוא לא אייפון הוא טלפון אנדרואיד. לאייפון אין גרסה של האפליקציה. האפליקציה מזהה נפילה, ומזהה גם שיצאתם מהרכב ולא חזרתם אליו תוך 90 דקות, למשל כשהשארתם את הרכב בתחילת מסלול ויצאתם לטייל לבד. הזיהוי הזה פועל בכל חניה, ולכן מי שנוסע לעבודה או לסידורים מפעיל באפליקציה מצב נסיעה, שבו הטלפון לא מונה 90 דקות מהיציאה מהרכב, כמו שמוסבר בהמשך. כשהטלפון מזהה אחד מהדברים האלה, הטלפון משמיע צליל אזהרה ונותן לכם זמן לבטל. אם לא ביטלתם, האפליקציה שולחת התראה לאנשים שבחרתם מראש, שנקראים באפליקציה אנשי הקשר: היא שולחת להם הודעת טקסט, מתקשרת אליהם ומראה להם איפה הטלפון שלכם.
       </p>
       <div class="hero-actions">
-        <a href="#how" class="btn-primary-link">איך האפליקציה עובדת, בשישה שלבים</a>
-        <a href="#profiles" class="btn-secondary-link">האפליקציה מתאימה למטיילים, לעובדים בשטח ולמי שבגיל מבוגר</a>
+        <a href="#how" class="btn-primary">איך האפליקציה עובדת, בשישה שלבים</a>
+        <a href="#profiles" class="link-secondary">האפליקציה מתאימה למטיילים, לעובדים בשטח ולמי שבגיל מבוגר</a>
+      </div>
+      </div>
+
+      <div class="live-map-card">
+        <p class="live-map-title">המפה החיה</p>
+        <div class="map-mockup-area">
+          <svg class="contour-lines" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,50 Q75,100 150,50 T300,50" fill="none" stroke="#0f172a" stroke-width="2"/>
+            <path d="M0,100 Q75,150 150,100 T300,100" fill="none" stroke="#0f172a" stroke-width="2"/>
+            <path d="M0,150 Q75,200 150,150 T300,150" fill="none" stroke="#0f172a" stroke-width="2"/>
+          </svg>
+          <svg class="map-picto" aria-hidden="true"><use href="#p-live-map"/></svg>
+        </div>
       </div>
     </section>
 
@@ -461,7 +548,7 @@ footer {
         כדאי לספר לאנשי הקשר מראש שבחרתם בהם. כשמוסיפים איש קשר, אפשר לשלוח לו מהאפליקציה הודעת טקסט עם קישור להורדת האפליקציה ועם קוד חיבור. את הקוד איש הקשר מקליד באפליקציה שלו, כדי לחבר אותה לאפליקציה שלכם. מי שמקבל את ההתראות בטלגרם לא צריך את הקוד. הקישור להורדה בהודעה עובד 7 ימים. איש קשר שמתקין את האפליקציה, או שמקבל את ההתראות בטלגרם, יכול גם לעצור את ההתראות לכל אנשי הקשר, בכפתור "קיבלתי, אני מטפל", כשהוא לוקח את הטיפול בעניין על עצמו. איש קשר שמקבל רק הודעות טקסט ושיחות לא יכול לעצור את ההתראות. מה איש קשר צריך לעשות מוסבר בעמוד לאנשי הקשר.
       </p>
 
-      <div class="callout-box" style="border-style: dashed;">
+      <div class="callout-box dashed">
         <p class="text-body">
           האפליקציה עדיין בבדיקות, ועוד אין קישור פתוח להורדה שלה. המחיר והקישור להורדה יפורסמו כשהבדיקות יסתיימו. אנשי הקשר לא משלמים, והם מקבלים קישור להורדה בהודעת הטקסט מהאפליקציה של מי שבחר בהם. האפליקציה לא נמצאת בחנות האפליקציות: בטלפון מתקינים אותה מקובץ שמורידים מקישור, ואת האפליקציה לשעון מעתיקים לשעון בכבל.
         </p>
@@ -497,12 +584,15 @@ footer {
     <!-- 3. איך האפליקציה עובדת, בשישה שלבים -->
     <section id="how">
       <h2 class="section-title">איך האפליקציה עובדת, בשישה שלבים</h2>
+      <div class="steps-grid">
 
       <div class="step-card">
         <div class="step-header">
-          <span class="step-num">1</span>
-          <h3>שלב 1. בוחרים אנשי קשר ופרופיל</h3>
-          <svg class="step-picto"><use href="#p-contact"/></svg>
+          <div class="step-num-title">
+            <span class="step-badge" aria-hidden="true">1</span>
+            <h3>שלב 1. בוחרים אנשי קשר ופרופיל</h3>
+          </div>
+          <svg class="step-icon-large" aria-hidden="true"><use href="#p-contact"/></svg>
         </div>
         <p class="text-body">
           באפליקציה בוחרים עד 10 אנשי קשר, למשל בני משפחה או חברים, וקובעים את הסדר שלהם. אנשי הקשר יכולים להתקין בטלפון שלהם את אותה אפליקציה. כשיש התראה, הטלפון שלהם מצלצל בצלצול חזק, שנקרא כאן אזעקה, גם כשהוא על שקט. הסדר קובע אצל מי האזעקה מצלצלת ראשונה, ולמי הטלפון שלכם מתקשר ראשון, שני וכן הלאה. אפשר גם לבחור שהטלפון יתקשר ראשון לאיש קשר אחר, ולא לראשון ברשימה. אחריו הטלפון ממשיך לפי הסדר של הרשימה. בוחרים גם פרופיל, לפי מה שאתם עושים: ׳טיול שטח׳, ׳עבודה בשטח׳ או ׳מבוגרים׳. הפרופיל קובע אילו נפילות הטלפון מזהה, איזה צליל הוא משמיע וכמה זמן יש לכם לבטל. כל פרופיל מוסבר בהמשך העמוד.
@@ -511,9 +601,11 @@ footer {
 
       <div class="step-card">
         <div class="step-header">
-          <span class="step-num">2</span>
-          <h3>שלב 2. האפליקציה פועלת כל הזמן, גם כשהיא לא פתוחה על המסך</h3>
-          <svg class="step-picto"><use href="#p-fall"/></svg>
+          <div class="step-num-title">
+            <span class="step-badge" aria-hidden="true">2</span>
+            <h3>שלב 2. האפליקציה פועלת כל הזמן, גם כשהיא לא פתוחה על המסך</h3>
+          </div>
+          <svg class="step-icon-large" aria-hidden="true"><use href="#p-fall"/></svg>
         </div>
         <p class="text-body">
           אחרי שמפעילים את האפליקציה, אין צורך לפתוח אותה בכל פעם שאתם יוצאים מהבית. היא ממשיכה לפעול גם אחרי שהטלפון נכבה ונדלק. הטלפון צריך להיות עליכם, בכיס או בתיק. הטלפון מגיב לארבעה מקרים: כשאתם נופלים, כשהוא לא זז בכלל במשך 45 שניות (רק בפרופיל ׳עבודה בשטח׳), כשיצאתם מהרכב ולא חזרתם אליו תוך 90 דקות, וכשאתם לוחצים על כפתור המצוקה בשעון החכם, אם יש לכם שעון כזה.
@@ -522,9 +614,11 @@ footer {
 
       <div class="step-card">
         <div class="step-header">
-          <span class="step-num">3</span>
-          <h3>שלב 3. יש לכם זמן לבטל, לפני שמשהו נשלח לאנשי הקשר</h3>
-          <svg class="step-picto"><use href="#p-countdown"/></svg>
+          <div class="step-num-title">
+            <span class="step-badge" aria-hidden="true">3</span>
+            <h3>שלב 3. יש לכם זמן לבטל, לפני שמשהו נשלח לאנשי הקשר</h3>
+          </div>
+          <svg class="step-icon-large" aria-hidden="true"><use href="#p-countdown"/></svg>
         </div>
         <p class="text-body">
           אחרי נפילה, הטלפון משמיע צליל אזהרה, רוטט ומציג מסך צהוב עם ספירה לאחור. בפרופילים ׳טיול שטח׳ ו׳עבודה בשטח׳ יש לכם 15 שניות לבטל, ובפרופיל ׳מבוגרים׳ יש לכם 30 שניות. אם לא קרה לכם כלום, לוחצים על "אני בסדר", ושום דבר לא נשלח. המסך הזה נפתח גם כשהטלפון נעול, ואפשר ללחוץ על "אני בסדר" בלי לפתוח את הנעילה.
@@ -557,9 +651,11 @@ footer {
 
       <div class="step-card">
         <div class="step-header">
-          <span class="step-num">4</span>
-          <h3>שלב 4. אנשי הקשר מקבלים התראה</h3>
-          <svg class="step-picto"><use href="#p-chain"/></svg>
+          <div class="step-num-title">
+            <span class="step-badge" aria-hidden="true">4</span>
+            <h3>שלב 4. אנשי הקשר מקבלים התראה</h3>
+          </div>
+          <svg class="step-icon-large" aria-hidden="true"><use href="#p-chain"/></svg>
         </div>
         <p class="text-body">
           אם לא ביטלתם בזמן, הטלפון שלכם שולח לכל אנשי הקשר הודעת טקסט, ומתקשר אליהם אחד אחרי השני. בהודעת הטקסט כתוב מה קרה, ויש בה קישור למיקום האחרון של הטלפון במפות של גוגל, אם הוא ידוע. בהודעת הטקסט אין קישור למפה החיה. השיחה היא שיחה רגילה מהטלפון שלכם, והרמקול בטלפון שלכם פתוח. המערכת לא משמיעה בשיחה הקלטה: איש הקשר שומע את מה שקורה ליד הטלפון, ויכול לדבר איתכם אם אתם ליד הטלפון.
@@ -571,9 +667,11 @@ footer {
 
       <div class="step-card">
         <div class="step-header">
-          <span class="step-num">5</span>
-          <h3>שלב 5. עוד אנשי קשר מצטרפים, עד שמישהו לוקח את העניין לידיים</h3>
-          <svg class="step-picto"><use href="#p-takeover"/></svg>
+          <div class="step-num-title">
+            <span class="step-badge" aria-hidden="true">5</span>
+            <h3>שלב 5. עוד אנשי קשר מצטרפים, עד שמישהו לוקח את העניין לידיים</h3>
+          </div>
+          <svg class="step-icon-large" aria-hidden="true"><use href="#p-takeover"/></svg>
         </div>
         <p class="text-body">
           האזעקה אצל איש הקשר הראשון מצלצלת 3 פעמים, עם הפסקה של 3 דקות בין פעם לפעם. אם הוא לא לוחץ על "קיבלתי, אני מטפל", האזעקה מתחילה לצלצל גם אצל איש הקשר השני, ואחר כך אצל כל השאר. איש הקשר השני מצטרף אחרי אותו זמן גם אם לאיש הקשר הראשון אין את האפליקציה, ולכן האזעקה לא מצלצלת אצל הראשון בכלל. הסדר הזה נקרא שרשרת ההתראות. שרשרת ההתראות לא נעצרת מעצמה. היא ממשיכה במעגל עד שמישהו לוחץ על "קיבלתי, אני מטפל" או מבטל את ההתראה. השיחות מהטלפון שלכם ממשיכות בנפרד מהאזעקה. הטלפון מתקשר קודם לאיש הקשר שבחרתם לשיחה הראשונה, ואחריו לאנשי הקשר לפי הסדר של הרשימה.
@@ -585,15 +683,17 @@ footer {
 
       <div class="step-card">
         <div class="step-header">
-          <span class="step-num">6</span>
-          <h3>שלב 6. איש קשר לוקח את העניין לידיים</h3>
-          <svg class="step-picto"><use href="#p-contact"/></svg>
+          <div class="step-num-title">
+            <span class="step-badge" aria-hidden="true">6</span>
+            <h3>שלב 6. איש קשר לוקח את העניין לידיים</h3>
+          </div>
+          <svg class="step-icon-large" aria-hidden="true"><use href="#p-contact"/></svg>
         </div>
         <p class="text-body">
           איש קשר לוחץ על "קיבלתי, אני מטפל". ההתראות נעצרות. אנשי הקשר שמחוברים לטלגרם, ומי שכבר ראה את ההתראה באפליקציה, מקבלים הודעה שאומרת מי לקח את העניין לידיים ובאיזו שעה הוא לחץ. הלחיצה הזו אומרת שמישהו מטפל בעניין, ולא שאתם בסדר.
         </p>
         <p class="text-body">
-          כבר בהתראה עצמה, באפליקציה ובטלגרם, כל איש קשר שמקבל אותה רואה את מספרי החירום של המדינה שבה אתם נמצאים ואת מספר הטלפון שכדאי להתקשר אליו לחילוץ: בישראל זו המשטרה, ובחוץ לארץ זה שירות חילוץ מקומי או מרכז המצב של משרד החוץ. בהתראה כתוב לאיש הקשר להתקשר קודם אליכם, ואם אי אפשר להשיג אתכם, להתקשר למספר החילוץ. איש הקשר שלחץ על "קיבלתי, אני מטפל" מקבל שוב את המיקום של הטלפון שלכם ואת מספר החילוץ. באפליקציה של אנשי הקשר יש גם טקסט באנגלית, שאפשר להקריא בטלפון לשירות חילוץ שלא מדבר עברית. בטלגרם הטקסט הזה נשלח למי שלחץ, אחרי הלחיצה. באפליקציה של איש הקשר הפרטים האלה נשארים על המסך 24 שעות אחרי הלחיצה, ובטלגרם הם נשארים בהודעות.
+          כבר בהתראה עצמה, באפליקציה ובטלגרם, כל איש קשר שמקבל אותה רואה את מספרי החירום של המדינה שבה אתם נמצאים ואת מספר הטלפון שכדאי להתקשר אליו לחילוץ: בישראל זו המשטרה, ובחוץ לארץ זה שירות חילוץ מקומי או מרכז המצב של משרד החוץ. בהתראה כתוב לאיש הקשר להתקשר קודם אליכם, ואם אי אפשר להשיג אתכם, להתקשר למספר החילוץ. איש הקשר שלחץ על "קיבלתי, אני מטפל" מקבל שוב את המיקום של הטלפון שלכם ואת מספר החילוץ. באפליקציה של אנשי הקשר יש גם טקסט באנגלית, שאפשר להקריא בטלפון לשירות חילוץ שלא מדבר עברית. בטלגרם הטקסט הזה נשלח למי שלחץ, אחרי הלחיצה. באפליקציה של איש הקשר הפרטים האלה נשארים על המסך 24 שעות אחרי הלחיצה, או עד שמגיעה התראה חדשה, ובטלגרם הם נשארים בהודעות.
         </p>
         <p class="text-body">
           מהרגע הזה המערכת לא שולחת עוד התראות על אותו מקרה, ואיש הקשר שלחץ ממשיך לטפל בעניין בעצמו. אם ההתראה הייתה על נפילה, על טלפון שלא זז או על כפתור המצוקה, ויצאתם מהרכב, הזמן עד ההתראה על כך שלא חזרתם לרכב ממשיך לרוץ, וכשהוא נגמר, אנשי הקשר מקבלים התראה חדשה. אם ההתראה הייתה על כך שלא חזרתם לרכב, התראה חדשה כזו תצא רק אחרי שתלחצו על "אני בסדר" או על "אני בסדר, צריך עוד שעה" והשעה תיגמר, או אחרי יציאה חדשה מהרכב. הטלפון שלכם מפסיק להתקשר לאנשי הקשר תוך 20 שניות, אם יש לו אינטרנט. שיחה שכבר מצלצלת לא מתנתקת. אחרי שמישהו לחץ על "קיבלתי, אני מטפל", המערכת כבר לא מאפשרת לבטל את ההתראה. כדי להודיע שאתם בסדר, התקשרו בעצמכם למי שמטפל. את השם שלו תראו במסך הראשי של האפליקציה, אם יש לטלפון אינטרנט.
@@ -605,6 +705,7 @@ footer {
           לפני שמישהו לחץ על "קיבלתי, אני מטפל", ההתראה מתבטלת גם בשני מקרים נוספים. המקרה הראשון הוא כשהטלפון שלכם מזהה שהוא שוב בנסיעה, אם מצב נסיעה כבוי. המקרה השני הוא כשמכבים את האפליקציה בטלפון בכפתור "כיבוי". גם במקרים האלה הטלפון מפסיק להתקשר, ואנשי הקשר מקבלים אותה הודעה שאומרת שאתם בסדר, למרות שאף אחד לא דיבר איתכם. לכן כדאי שאיש קשר שלא שמע מכם בעצמו יתקשר אליכם. אחרי שמישהו לחץ על "קיבלתי, אני מטפל", נסיעה או כיבוי של האפליקציה רק עוצרים את השיחות מהטלפון שלכם, ואנשי הקשר לא מקבלים הודעה. חיבור הטלפון לטעינה לא מבטל התראה שכבר נשלחה. התראה על טלפון שהתרחק יותר מ־300 מטר מהמקום שבו החיבור לשעון נקטע מתבטלת אחרת: נסיעה והכפתור "אני בסדר, צריך עוד שעה" לא מבטלים אותה. אתם מבטלים אותה רק כשאתם עוצרים את עדכון המיקום כל 5 שניות, בשעון או בטלפון עם הקוד הסודי.
         </p>
       </div>
+      </div>
     </section>
 
     <!-- 4. הפרופילים -->
@@ -614,74 +715,83 @@ footer {
         הפרופיל שמתאים לכם תלוי במה שאתם עושים ובגיל שלכם: ׳טיול שטח׳ למי שמטייל, רץ או רוכב על אופניים לבד בשטח, ׳עבודה בשטח׳ למי שעובד לבד באתר עבודה, ו׳מבוגרים׳ למי שבגיל מבוגר. הפרופיל קובע אילו נפילות הטלפון מזהה, איזה צליל הוא משמיע וכמה זמן יש לכם לבטל לפני שנשלחת התראה. את הפרופיל בוחרים באפליקציה, ואפשר להחליף אותו בכל רגע. לכל פרופיל יש באתר עמוד שמסביר אותו בפירוט, ואפשר לקרוא את כולם לפני שבוחרים.
       </p>
 
+      <div class="profiles-grid">
+
       <!-- פרופיל טיול שטח -->
       <div class="profile-card">
-        <div class="profile-top">
-          <h3 class="profile-title">טיול שטח</h3>
-          <svg style="width:44px;height:44px;"><use href="#p-profile-hike"/></svg>
+        <div class="profile-img-container"><svg aria-hidden="true"><use href="#p-profile-hike"/></svg></div>
+        <div class="profile-content">
+          <div class="profile-top-bar">
+            <h3 class="profile-title">טיול שטח</h3>
+          </div>
+          <p class="text-body">הפרופיל הזה מתאים למי שמטייל, רץ או רוכב על אופניים לבד בשטח.</p>
+          <p class="text-body">הטלפון מזהה רק נפילה חזקה, כדי שתנועות רגילות בזמן הטיול לא ייחשבו לנפילה.</p>
+          <p class="text-body">צליל האזהרה חזק מאוד, כמו סירנה, כדי שגם אנשים שנמצאים בסביבה ישמעו אותו.</p>
+          <p class="text-body">הטלפון לא מזהה נפילה כשהמסך שלו דלוק, למשל כשאתם מנווטים במפה.</p>
+          <p class="text-body">כשאתם רוכבים על אופניים במהירות של 25 קמ"ש או יותר, הטלפון חושב שאתם בנסיעה ברכב, ולא מזהה נפילה עד שהוא מבין שיצאתם מהרכב. כשאתם עוצרים ל־4 דקות אחרי רכיבה כזו, הטלפון חושב שיצאתם מהרכב, ומתחיל למנות 90 דקות. לכן אם נפלתם בזמן רכיבה מהירה, הטלפון לא יזהה את הנפילה. אנשי הקשר יקבלו התראה רק אם לא תלחצו על "אני בסדר" באזהרה שהטלפון משמיע 85 דקות אחרי שהוא חושב שיצאתם מהרכב, כלומר בערך שעה וחצי אחרי הנפילה. אם יש לכם שעון חכם, לחצו על כפתור המצוקה.</p>
+          <p class="text-body">יש לכם 15 שניות לבטל.</p>
         </div>
-        <p class="text-body">הפרופיל הזה מתאים למי שמטייל, רץ או רוכב על אופניים לבד בשטח.</p>
-        <p class="text-body">הטלפון מזהה רק נפילה חזקה, כדי שתנועות רגילות בזמן הטיול לא ייחשבו לנפילה.</p>
-        <p class="text-body">צליל האזהרה חזק מאוד, כמו סירנה, כדי שגם אנשים שנמצאים בסביבה ישמעו אותו.</p>
-        <p class="text-body">הטלפון לא מזהה נפילה כשהמסך שלו דלוק, למשל כשאתם מנווטים במפה.</p>
-        <p class="text-body">כשאתם רוכבים על אופניים במהירות של 25 קמ"ש או יותר, הטלפון חושב שאתם בנסיעה ברכב, ולא מזהה נפילה עד שהוא מבין שיצאתם מהרכב. כשאתם עוצרים ל־4 דקות אחרי רכיבה כזו, הטלפון חושב שיצאתם מהרכב, ומתחיל למנות 90 דקות. לכן אם נפלתם בזמן רכיבה מהירה, הטלפון לא יזהה את הנפילה. אנשי הקשר יקבלו התראה רק אם לא תלחצו על "אני בסדר" באזהרה שהטלפון משמיע 85 דקות אחרי שהוא חושב שיצאתם מהרכב, כלומר בערך שעה וחצי אחרי הנפילה. אם יש לכם שעון חכם, לחצו על כפתור המצוקה.</p>
-        <p class="text-body">יש לכם 15 שניות לבטל.</p>
-        
       </div>
 
       <!-- פרופיל עבודה בשטח -->
       <div class="profile-card">
-        <div class="profile-top">
-          <h3 class="profile-title">עבודה בשטח</h3>
-          <svg style="width:44px;height:44px;"><use href="#p-profile-work"/></svg>
+        <div class="profile-img-container"><svg aria-hidden="true"><use href="#p-profile-work"/></svg></div>
+        <div class="profile-content">
+          <div class="profile-top-bar">
+            <h3 class="profile-title">עבודה בשטח</h3>
+          </div>
+          <p class="text-body">הפרופיל הזה מתאים למי שעובד לבד באתר עבודה.</p>
+          <p class="text-body">הטלפון מזהה גם נפילה בינונית, למשל נפילה מסולם, ולא רק נפילה חזקה.</p>
+          <p class="text-body">הטלפון שם לב גם כשהוא לא זז בכלל במשך 45 שניות, כי זה מה שקורה כשמישהו מאבד הכרה והטלפון בכיס שלו. אחרי 45 שניות בלי תזוזה, הטלפון משמיע שני צלילים עולים ומתחיל ספירה לאחור של 15 שניות. הוא לא עושה את זה כשהמסך שלו דלוק, כשהוא בטעינה או כשאתם בנסיעה.</p>
+          <p class="text-body">אחרי נפילה, צליל האזהרה בפרופיל הזה עדין, ולא סירנה.</p>
+          <p class="text-body">יש לכם 15 שניות לבטל.</p>
         </div>
-        <p class="text-body">הפרופיל הזה מתאים למי שעובד לבד באתר עבודה.</p>
-        <p class="text-body">הטלפון מזהה גם נפילה בינונית, למשל נפילה מסולם, ולא רק נפילה חזקה.</p>
-        <p class="text-body">הטלפון שם לב גם כשהוא לא זז בכלל במשך 45 שניות, כי זה מה שקורה כשמישהו מאבד הכרה והטלפון בכיס שלו. אחרי 45 שניות בלי תזוזה, הטלפון משמיע שני צלילים עולים ומתחיל ספירה לאחור של 15 שניות. הוא לא עושה את זה כשהמסך שלו דלוק, כשהוא בטעינה או כשאתם בנסיעה.</p>
-        <p class="text-body">אחרי נפילה, צליל האזהרה בפרופיל הזה עדין, ולא סירנה.</p>
-        <p class="text-body">יש לכם 15 שניות לבטל.</p>
-        
       </div>
 
       <!-- פרופיל מבוגרים -->
       <div class="profile-card">
-        <div class="profile-top">
-          <h3 class="profile-title">מבוגרים</h3>
-          <svg style="width:44px;height:44px;"><use href="#p-profile-older"/></svg>
+        <div class="profile-img-container"><svg aria-hidden="true"><use href="#p-profile-older"/></svg></div>
+        <div class="profile-content">
+          <div class="profile-top-bar">
+            <h3 class="profile-title">מבוגרים</h3>
+          </div>
+          <p class="text-body">הפרופיל הזה מתאים למי שבגיל מבוגר, ועלול ליפול כשהוא מאבד שיווי משקל.</p>
+          <p class="text-body">הטלפון מזהה גם נפילה קלה או איטית, כי מי שבגיל מבוגר נופל לפעמים לאט, כשהוא מאבד שיווי משקל, ולא בבת אחת.</p>
+          <p class="text-body">הטלפון צריך להיות עליכם גם בבית, למשל בכיס. טלפון שמונח על השולחן לא יזהה שנפלתם.</p>
+          <p class="text-body">צליל האזהרה עדין, ובין הצלילים נשמע קול ששואל אם הכול בסדר ומבקש ללחוץ על הכפתור כדי לבטל. הכפתור שהקול מתכוון אליו הוא "אני בסדר". הקול הזה נשמע רק אם בטלפון מותקן קול שיודע להקריא טקסט בעברית. בהגדרות הטלפון ההגדרה הזו נקראת "המרת טקסט לדיבור".</p>
+          <p class="text-body">כשמתיישבים בבת אחת על כיסא, הטלפון עלול לחשוב שנפלתם. אם שמעתם את הצליל, לוחצים על "אני בסדר" תוך 30 שניות, ושום דבר לא נשלח.</p>
+          <p class="text-body">יש לכם 30 שניות לבטל.</p>
         </div>
-        <p class="text-body">הפרופיל הזה מתאים למי שבגיל מבוגר, ועלול ליפול כשהוא מאבד שיווי משקל.</p>
-        <p class="text-body">הטלפון מזהה גם נפילה קלה או איטית, כי מי שבגיל מבוגר נופל לפעמים לאט, כשהוא מאבד שיווי משקל, ולא בבת אחת.</p>
-        <p class="text-body">הטלפון צריך להיות עליכם גם בבית, למשל בכיס. טלפון שמונח על השולחן לא יזהה שנפלתם.</p>
-        <p class="text-body">צליל האזהרה עדין, ובין הצלילים נשמע קול ששואל אם הכול בסדר ומבקש ללחוץ על הכפתור כדי לבטל. הכפתור שהקול מתכוון אליו הוא "אני בסדר". הקול הזה נשמע רק אם בטלפון מותקן קול שיודע להקריא טקסט בעברית. בהגדרות הטלפון ההגדרה הזו נקראת "המרת טקסט לדיבור".</p>
-        <p class="text-body">כשמתיישבים בבת אחת על כיסא, הטלפון עלול לחשוב שנפלתם. אם שמעתם את הצליל, לוחצים על "אני בסדר" תוך 30 שניות, ושום דבר לא נשלח.</p>
-        <p class="text-body">יש לכם 30 שניות לבטל.</p>
-        
       </div>
 
       <!-- מסלול רביעי: אני איש קשר -->
       <div class="profile-card contact-path">
-        <div class="profile-top">
-          <h3 class="profile-title">אני איש קשר</h3>
-          <svg style="width:44px;height:44px;"><use href="#p-contact"/></svg>
+        <div class="profile-content">
+          <div class="profile-top-bar">
+            <h3 class="profile-title">אני איש קשר</h3>
+            <svg style="width:44px;height:44px;" aria-hidden="true"><use href="#p-contact"/></svg>
+          </div>
+          <p class="text-body">
+            אם מישהו ביקש מכם להיות איש הקשר שלו, בעמוד לאנשי הקשר מוסבר מה תקבלו, מה עושים כשמגיעה אזעקה, איך מתקינים את האפליקציה, ואיך מקבלים את ההתראות בטלגרם בלי להתקין אותה. אנשי הקשר מתקינים את אותה אפליקציה, והיא עובדת רק בטלפון אנדרואיד. איש קשר עם אייפון מקבל את ההתראות בטלגרם, וגם הודעות טקסט ושיחות. מי שמקבל את ההתראות בטלגרם ולא באפליקציה, באייפון או באנדרואיד, לא מקבל אזעקה שמצלצלת כשהטלפון על שקט. אם מתקשרים אליכם מהטלפון של מי שבחר בכם, ואתם עונים ולא שומעים אותו מדבר, ייתכן שזו התראה.
+          </p>
         </div>
-        <p class="text-body">
-          אם מישהו ביקש מכם להיות איש הקשר שלו, בעמוד לאנשי הקשר מוסבר מה תקבלו, מה עושים כשמגיעה אזעקה, איך מתקינים את האפליקציה, ואיך מקבלים את ההתראות בטלגרם בלי להתקין אותה. אנשי הקשר מתקינים את אותה אפליקציה, והיא עובדת רק בטלפון אנדרואיד. איש קשר עם אייפון מקבל את ההתראות בטלגרם, וגם הודעות טקסט ושיחות. מי שמקבל את ההתראות בטלגרם ולא באפליקציה, באייפון או באנדרואיד, לא מקבל אזעקה שמצלצלת כשהטלפון על שקט. אם מתקשרים אליכם מהטלפון של מי שבחר בכם, ואתם עונים ולא שומעים אותו מדבר, ייתכן שזו התראה.
-        </p>
-        
+      </div>
+
       </div>
     </section>
 
     <!-- 5. תרשים -->
     <section id="flow">
       <h2 class="section-title">מה קורה מהרגע שהטלפון מזהה שאולי אתם צריכים עזרה?</h2>
+      <div class="flow-container">
       <p class="text-body">
         מהרגע שהטלפון מזהה שאולי אתם צריכים עזרה, הוא קודם נותן לכם זמן לבטל. אם לא ביטלתם, אנשי הקשר מקבלים התראה, והיא ממשיכה עד שאחד מאנשי הקשר לוקח את העניין לידיים, או עד שאתם או אחד מאנשי הקשר מבטלים אותה. התרשים מראה את זה לפי הסדר.
       </p>
 
       <div class="flow-legend">
-        <div class="legend-item"><svg class="legend-icon"><use href="#i-warning"/></svg><span>משולש צהוב: אזהרה. הטלפון שלכם משמיע צליל אזהרה, ועוד אפשר לבטל. לאנשי הקשר עוד לא נשלח שום דבר. גם ההודעה לאנשי הקשר על כך שהחיבור בין השעון לטלפון נקטע מופיעה בצהוב.</span></div>
-        <div class="legend-item"><svg class="legend-icon"><use href="#i-alarm"/></svg><span>עיגול אדום: התראה. אנשי הקשר מקבלים הודעות טקסט, שיחות, אזעקה באפליקציה שלהם, ואת ההתראה גם בטלגרם. בהתראה על טלפון שהתרחק מהשעון, ובהתראה שהשרת שולח בעצמו כשהטלפון הפסיק לדווח לו בזמן נסיעה, אנשי הקשר לא מקבלים הודעות טקסט ושיחות, רק את ההתראה בטלגרם ובאפליקציה שלהם.</span></div>
-        <div class="legend-item"><svg class="legend-icon"><use href="#i-safe"/></svg><span>ריבוע ירוק: אתם בסדר. הספירה לאחור נעצרה ושום דבר לא נשלח, או שההתראה בוטלה.</span></div>
+        <div class="legend-item"><svg class="legend-icon" aria-hidden="true"><use href="#i-warning"/></svg><span>משולש צהוב: אזהרה. הטלפון שלכם משמיע צליל אזהרה, ועוד אפשר לבטל. לאנשי הקשר עוד לא נשלח שום דבר. גם ההודעה לאנשי הקשר על כך שהחיבור בין השעון לטלפון נקטע מופיעה בצהוב.</span></div>
+        <div class="legend-item"><svg class="legend-icon" aria-hidden="true"><use href="#i-alarm"/></svg><span>עיגול אדום: התראה. אנשי הקשר מקבלים הודעות טקסט, שיחות, אזעקה באפליקציה שלהם, ואת ההתראה גם בטלגרם. בהתראה על טלפון שהתרחק מהשעון, ובהתראה שהשרת שולח בעצמו כשהטלפון הפסיק לדווח לו בזמן נסיעה, אנשי הקשר לא מקבלים הודעות טקסט ושיחות, רק את ההתראה בטלגרם ובאפליקציה שלהם.</span></div>
+        <div class="legend-item"><svg class="legend-icon" aria-hidden="true"><use href="#i-safe"/></svg><span>ריבוע ירוק: אתם בסדר. הספירה לאחור נעצרה ושום דבר לא נשלח, או שההתראה בוטלה.</span></div>
       </div>
 
       <div class="callout-box">
@@ -698,21 +808,21 @@ footer {
       </div>
 
       <!-- שלב צהוב -->
-      <div class="flow-block yellow-stage">
-        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;"><use href="#i-warning"/></svg> צהוב: הטלפון שלכם משמיע צליל אזהרה, ועוד אפשר לבטל</h3>
+      <div class="flow-step-block yellow-warning">
+        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;" aria-hidden="true"><use href="#i-warning"/></svg> צהוב: הטלפון שלכם משמיע צליל אזהרה, ועוד אפשר לבטל</h3>
         <p class="text-body">
           אחרי נפילה, או אחרי 45 שניות בלי תזוזה, הטלפון משמיע צליל אזהרה ומציג ספירה לאחור של 15 שניות, או של 30 שניות בפרופיל ׳מבוגרים׳. כשלא חזרתם לרכב, צליל האזהרה נשמע 15 שניות, בכל פרופיל, 85 דקות אחרי שיצאתם. ההתראה יוצאת רק כשעוברות 90 דקות, כלומר 5 דקות אחרי האזהרה.
         </p>
         <div style="background:#ffffff; border:2px solid var(--green-safe); border-radius:6px; padding:10px 14px; margin-top:8px;">
           <p class="text-body" style="font-weight:700; color:var(--green-safe); display:flex; align-items:center; gap:6px;">
-            <svg style="width:20px;height:20px;"><use href="#i-safe"/></svg> לחצתם על "אני בסדר", ושום דבר לא נשלח. כשלא חזרתם לרכב, הלחיצה נותנת לכם עוד שעה.
+            <svg style="width:20px;height:20px;" aria-hidden="true"><use href="#i-safe"/></svg> לחצתם על "אני בסדר", ושום דבר לא נשלח. כשלא חזרתם לרכב, הלחיצה נותנת לכם עוד שעה.
           </p>
         </div>
       </div>
 
       <!-- שלב אדום 1 -->
-      <div class="flow-block red-stage">
-        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;"><use href="#i-alarm"/></svg> אדום: הטלפון שלכם שולח מיד הודעת טקסט ומתקשר</h3>
+      <div class="flow-step-block red-alarm">
+        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;" aria-hidden="true"><use href="#i-alarm"/></svg> אדום: הטלפון שלכם שולח מיד הודעת טקסט ומתקשר</h3>
         <p class="text-body">
           כל אנשי הקשר מקבלים הודעת טקסט עם המיקום האחרון של הטלפון שלכם, אם הוא ידוע. הטלפון מתקשר קודם 3 פעמים לאיש הקשר שבחרתם לשיחה הראשונה, ומחכה דקה בין ניסיון לניסיון. אם לא בחרתם איש קשר אחר לשיחה הראשונה, זה איש הקשר הראשון ברשימה. אחר כך הוא מתקשר 3 פעמים לאיש הקשר הבא ברשימה, וכן הלאה. אחרי איש הקשר האחרון ברשימה הטלפון חוזר לראשון ברשימה, וממשיך להתקשר עד שמישהו עוצר את ההתראות.
         </p>
@@ -722,8 +832,8 @@ footer {
       </div>
 
       <!-- שלב אדום 2 -->
-      <div class="flow-block red-stage">
-        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;"><use href="#i-alarm"/></svg> אדום: כמעט באותו זמן, האזעקה מצלצלת באפליקציה של איש הקשר הראשון</h3>
+      <div class="flow-step-block red-alarm">
+        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;" aria-hidden="true"><use href="#i-alarm"/></svg> אדום: כמעט באותו זמן, האזעקה מצלצלת באפליקציה של איש הקשר הראשון</h3>
         <p class="text-body">
           תוך פחות מ־2 דקות, האזעקה מצלצלת אצל איש הקשר הראשון במשך 15 שניות, גם כשהטלפון שלו על שקט. כל אנשי הקשר שמחוברים לטלגרם מקבלים שם התראה שאתם אולי צריכים עזרה.
         </p>
@@ -736,8 +846,8 @@ footer {
       </div>
 
       <!-- שלב אדום 3 -->
-      <div class="flow-block red-stage">
-        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;"><use href="#i-alarm"/></svg> אדום: שרשרת ההתראות חוזרת להתחלה</h3>
+      <div class="flow-step-block red-alarm">
+        <h3 class="flow-stage-title"><svg style="width:24px;height:24px;" aria-hidden="true"><use href="#i-alarm"/></svg> אדום: שרשרת ההתראות חוזרת להתחלה</h3>
         <p class="text-body">
           אם אף אחד לא לחץ על "קיבלתי, אני מטפל", שרשרת ההתראות חוזרת לאיש הקשר הראשון וממשיכה. האזעקה מצלצלת שוב קודם רק אצל איש הקשר הראשון, ואחר כך מצטרפים שוב השאר, באותו סדר. השרשרת לא נעצרת מעצמה.
         </p>
@@ -754,28 +864,30 @@ footer {
           לפני שמישהו לחץ על "קיבלתי, אני מטפל", ההתראה מתבטלת גם כשהטלפון שלכם מזהה שהוא שוב בנסיעה, אם מצב נסיעה כבוי, וכשמכבים את האפליקציה, כמו שמוסבר בשלב 6. התראה על טלפון שהתרחק יותר מ־300 מטר מהמקום שבו החיבור לשעון נקטע לא מתבטלת כך.
         </p>
       </div>
+      </div>
     </section>
 
     <!-- 6. עוד עמודים -->
     <section id="pages">
       <h2 class="section-title">עוד עמודים באתר</h2>
-      <ul class="page-links-list">
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-profile-hike"/></svg><span>טיול שטח: מה הטלפון מזהה ומה קורה אחרי נפילה</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-profile-work"/></svg><span>עבודה בשטח: נפילה, וטלפון שלא זז במשך 45 שניות</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-profile-older"/></svg><span>מבוגרים: נפילה קלה, צליל עדין וקול שמבקש מכם לבטל</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-car-leave"/></svg><span>יציאה מהרכב ומצב נסיעה: מה קורה אם לא חזרתם לרכב תוך 90 דקות, ואיך מפעילים מצב נסיעה, כדי שעצירה בדרך לא תיחשב ליציאה מהרכב</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-watch"/></svg><span>שעון חכם: מה הוא מוסיף, ואילו שעונים מתאימים</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-contact"/></svg><span>אנשי הקשר: מי יכול להיות איש קשר, ומה הוא מקבל</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-chain"/></svg><span>איך בוחרים אנשי קשר: את מי כדאי לבחור, ובאיזה סדר לשים אותם</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-event-log"/></svg><span>יומן האירועים: כל מה שהאפליקציה עשתה, לפי ימים, ואיך משתפים אותו</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-live-map"/></svg><span>המפה החיה: העמוד שבו אנשי הקשר רואים איפה הטלפון שלכם</span></li>
-        <li class="page-link-item"><svg style="width:36px;height:36px;"><use href="#p-offline-maps"/></svg><span>מפות בלי אינטרנט: איך מורידים מראש, ברשת אלחוטית, את המפה של המדינה שבה אתם מטיילים, קובץ אחד לכל מדינה, כדי שתוכלו לראות אותה בטלפון שלכם גם בלי קליטה ובלי אינטרנט</span></li>
+      <ul class="pages-grid">
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-profile-hike"/></svg><span>טיול שטח: מה הטלפון מזהה ומה קורה אחרי נפילה</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-profile-work"/></svg><span>עבודה בשטח: נפילה, וטלפון שלא זז במשך 45 שניות</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-profile-older"/></svg><span>מבוגרים: נפילה קלה, צליל עדין וקול שמבקש מכם לבטל</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-car-leave"/></svg><span>יציאה מהרכב ומצב נסיעה: מה קורה אם לא חזרתם לרכב תוך 90 דקות, ואיך מפעילים מצב נסיעה, כדי שעצירה בדרך לא תיחשב ליציאה מהרכב</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-watch"/></svg><span>שעון חכם: מה הוא מוסיף, ואילו שעונים מתאימים</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-contact"/></svg><span>אנשי הקשר: מי יכול להיות איש קשר, ומה הוא מקבל</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-chain"/></svg><span>איך בוחרים אנשי קשר: את מי כדאי לבחור, ובאיזה סדר לשים אותם</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-event-log"/></svg><span>יומן האירועים: כל מה שהאפליקציה עשתה, לפי ימים, ואיך משתפים אותו</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-live-map"/></svg><span>המפה החיה: העמוד שבו אנשי הקשר רואים איפה הטלפון שלכם</span></li>
+        <li class="page-link-tile"><svg aria-hidden="true"><use href="#p-offline-maps"/></svg><span>מפות בלי אינטרנט: איך מורידים מראש, ברשת אלחוטית, את המפה של המדינה שבה אתם מטיילים, קובץ אחד לכל מדינה, כדי שתוכלו לראות אותה בטלפון שלכם גם בלי קליטה ובלי אינטרנט</span></li>
       </ul>
     </section>
 
     <!-- 7. מה חשוב לדעת לפני שסומכים על האפליקציה -->
     <section id="honest">
       <h2 class="section-title">מה חשוב לדעת לפני שסומכים על האפליקציה</h2>
+      <div class="honest-box">
       <p class="text-body">
         לפני שסומכים על האפליקציה, חשוב לדעת מה היא לא עושה, ומתי היא לא עובדת.
       </p>
@@ -808,21 +920,21 @@ footer {
         זיהוי הנפילה לא מושלם. גם שיטות מקצועיות לזיהוי נפילות לא מזהות את כל הנפילות. במחקר שפורסם ב־2012 בדקו 13 שיטות כאלה על 29 נפילות אמיתיות, לא מבוימות, בעיקר של חולים בסיכון גבוה ליפול, שחגרו חיישן על הגב התחתון. בממוצע השיטות זיהו 57 נפילות מכל 100, והשיטה הטובה ביותר זיהתה 83 נפילות מכל 100. לכן ספרו לאנשי הקשר לאן אתם יוצאים, ואם יש לכם שעון חכם, השתמשו בכפתור המצוקה כשאתם צריכים עזרה.
       </p>
       <p class="source-line" dir="ltr" lang="en">Bagalà F. et al., "Evaluation of accelerometer-based fall detection algorithms on real-world falls", PLoS ONE, 2012</p>
+      </div>
     </section>
 
-  </main>
+</main>
 
-  <!-- 8. תחתית העמוד -->
-  <footer>
-    <div class="footer-logo">SAVE ME</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">SAVE ME</div>
     <ul class="footer-links">
       <li><a href="./privacy.html">פרטיות</a></li>
       <li><a href="mailto:eli.marshak@gmail.com">יצירת קשר</a></li>
     </ul>
     <div class="footer-domain" lang="en">savemesos.com</div>
-  </footer>
-
-</div>
+  </div>
+</footer>
 
 </body>
 </html>
