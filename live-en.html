@@ -71,7 +71,7 @@ h2{margin:0 0 10px;font-size:17px;font-weight:600}
   var name='';
   var t={"title":"Live map","notFound":"This link is not valid or has expired.","loading":"Loading...","updated":"Updated","sec":"seconds ago","min":"minutes ago","hr":"hours ago","noData":"No position received yet.","battery":"Battery","accuracy":"Accuracy","m":"m","navigate":"Navigate to the position","copy":"Copy coordinates","copied":"Copied","share":"Share the link","follow":"Follow the marker","trackingSince":"The phone lost its link to the watch at","trackingNote":"and has been transmitting its position every 5 seconds since. Only the watch, the stop code or a contact can stop it.","alert":"Open alert","emergency":"Emergency numbers","near":"Near the position","contacts":"Contacts","stage":"Stage","recent":"Recent positions","offline":"No connection to the server. Retrying...","stale":"The phone has not transmitted for","points":"points","lang":"עברית"}; var L2="en";
   var token=new URLSearchParams(location.search).get('t')||'';
-  var api="https://pmnvoenkpfptglgprgqc.supabase.co/functions/v1/saveme"+'/live-data?t='+encodeURIComponent(token);
+  var api="https://pmnvoenkpfptglgprgqc.supabase.co/functions/v1/saveme"+'/live-data?t='+encodeURIComponent(token)+'&lang=en';
   document.getElementById('lang').href='./live'+("en"==='he'?'-en':'')+'?t='+encodeURIComponent(token)+'&lang=he';
   var map=L.map('map',{zoomControl:true}); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
   map.setView([60,10],4);
