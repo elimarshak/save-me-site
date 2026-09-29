@@ -14,26 +14,32 @@ jobs:
           npm i @protomaps/basemaps
           node gen-style.mjs
           git clone --depth 1 https://github.com/protomaps/basemaps-assets ba
-          mkdir -p assets/sprites/v4
+          mkdir -p assets/sprites/v4 assets/fonts
           cp ba/sprites/v4/light* assets/sprites/v4/
-          for f in "Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic"; do
+          # Every glyph range of every font the style uses. The map on the phone stops drawing all the labels of a
+          # tile when one range it asks for is missing, and Arabic names ask for the ranges near the end (65024-65279).
+          for f in "Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic" "Noto Sans Devanagari Regular v1"; do
             enc=$(echo "$f" | sed 's/ /%20/g')
             for d in "$f" "$enc"; do
               mkdir -p "assets/fonts/$d"
-              for r in 0-255 256-511 512-767 768-1023 1024-1279 1280-1535 1536-1791 1792-2047 8192-8447 8448-8703 8704-8959; do
-                cp "ba/fonts/$f/$r.pbf" "assets/fonts/$d/" 2>/dev/null || true
-              done
+              cp "ba/fonts/$f/"*.pbf "assets/fonts/$d/"
             done
+            n=$(ls "assets/fonts/$f" | wc -l)
+            echo "$f: $n ranges"
+            test "$n" -ge 256
           done
           cp style.json assets/
           (cd assets && zip -qr ../assets.zip .)
           ls -la assets.zip
-      - name: replace it inside the maps release
+      - name: add it to the maps release under a new name
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload maps assets.zip --clobber
+          STAMP=$(date -u +%Y%m%d%H%M)
+          NAME="assets-$STAMP.zip"
+          cp assets.zip "$NAME"
+          gh release upload maps "$NAME"
           curl -sSL -o maps.json https://github.com/elimarshak/save-me-site/releases/download/maps/maps.json
-          python3 -c "import json,os;d=json.load(open('maps.json'));d['assets']=os.path.getsize('assets.zip');json.dump(d,open('maps.json','w'))"
+          NAME="$NAME" STAMP="$STAMP" python3 -c "import json,os;d=json.load(open('maps.json'));d['assets']=os.path.getsize('assets.zip');d['assets_file']=os.environ['NAME'];d['assets_build']=os.environ['STAMP'];json.dump(d,open('maps.json','w'))"
           cat maps.json
           gh release upload maps maps.json --clobber

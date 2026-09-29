@@ -42,21 +42,28 @@ jobs:
           git clone --depth 1 https://github.com/protomaps/basemaps-assets ba
           mkdir -p assets/sprites/v4 assets/fonts
           cp ba/sprites/v4/light* assets/sprites/v4/
-          for f in "Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic"; do
-            mkdir -p "assets/fonts/$f"
-            for r in 0-255 256-511 512-767 768-1023 1024-1279 1280-1535 1536-1791 1792-2047 8192-8447 8448-8703 8704-8959; do
-              cp "ba/fonts/$f/$r.pbf" "assets/fonts/$f/" 2>/dev/null || true
+          # Every glyph range of every font the style uses. The map on the phone stops drawing all the labels of a
+          # tile when one range it asks for is missing, and Arabic names ask for the ranges near the end (65024-65279).
+          for f in "Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic" "Noto Sans Devanagari Regular v1"; do
+            enc=$(echo "$f" | sed 's/ /%20/g')
+            for d in "$f" "$enc"; do
+              mkdir -p "assets/fonts/$d"
+              cp "ba/fonts/$f/"*.pbf "assets/fonts/$d/"
             done
+            test "$(ls "assets/fonts/$f" | wc -l)" -ge 256
           done
           cp style.json assets/
           (cd assets && zip -qr ../assets.zip .)
           ls -la assets.zip
           IL=$(stat -c %s israel.pmtiles); NO=$(stat -c %s norway.pmtiles); AS=$(stat -c %s assets.zip)
-          echo "{\"build\":\"$BUILD\",\"israel\":$IL,\"norway\":$NO,\"assets\":$AS}" > maps.json
+          STAMP=$(date -u +%Y%m%d%H%M)
+          cp assets.zip "assets-$STAMP.zip"
+          echo "ASSETS_NAME=assets-$STAMP.zip" >> "$GITHUB_ENV"
+          echo "{\"build\":\"$BUILD\",\"israel\":$IL,\"norway\":$NO,\"assets\":$AS,\"assets_file\":\"assets-$STAMP.zip\",\"assets_build\":\"$STAMP\"}" > maps.json
           cat maps.json
       - name: publish as release assets
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete maps -y --cleanup-tag || true
-          gh release create maps israel.pmtiles norway.pmtiles assets.zip maps.json -t "Offline maps" -n "OpenStreetMap data via Protomaps build $BUILD"
+          gh release create maps israel.pmtiles norway.pmtiles assets.zip "$ASSETS_NAME" maps.json -t "Offline maps" -n "OpenStreetMap data via Protomaps build $BUILD"
