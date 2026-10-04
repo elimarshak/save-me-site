@@ -160,6 +160,17 @@ ul.l li:first-child{padding-top:0}
 .ph .lv .cd h4+div{border-top:0}
 .ph .lv .cd b{color:#0072de;font-weight:600;direction:ltr;white-space:nowrap}
 .ph .lv .cd .mo{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:9.5px;direction:ltr}
+.hero{display:flex;flex-direction:column;align-items:center;gap:14px}
+.hero .status{align-self:stretch}
+.sc{display:flex;flex-direction:column}
+.sc .fig{align-self:stretch}
+@media (min-width:600px){
+.hero{flex-direction:row;align-items:center}
+.hero .status{flex:1;align-self:center}
+.sc{flex-direction:row;gap:16px;align-items:flex-start}
+.sc .tx{flex:1}
+.sc .fig{flex:0 0 268px;align-self:flex-start;margin-top:0}
+}
 /* footer, and the main navigation in the header */
 footer{max-width:640px;margin:28px auto 0;padding:0 16px calc(28px + env(safe-area-inset-bottom,0px))}
 footer nav{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px}
